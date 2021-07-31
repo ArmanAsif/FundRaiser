@@ -1,4 +1,4 @@
-.signup-container {
+.request-container {
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -7,22 +7,22 @@
 	background: var(--green-light);
 }
 
-.signup-form-container {
+.request-form-container {
 	width: 20rem;
 	padding: 0 3rem;
 }
 
-.signup-form-container h3 {
+.request-form-container h3 {
 	letter-spacing: 0.1rem;
 	margin-bottom: 1rem;
 	font-weight: 500;
 }
 
-.signup-form label {
+.request-form label {
 	font-size: 0.85rem;
 }
 
-.signup-form input {
+.request-form input {
 	width: 100%;
 	padding: 0.8rem;
 	margin: 0.5rem 0;
@@ -33,7 +33,7 @@
 	border: 2px solid var(--green-main);
 }
 
-.signup-submit-button {
+.request-submit-button {
 	border: none;
 	color: var(--white-main);
 	background: var(--green-main);
@@ -44,19 +44,30 @@
 	border-radius: 0.2rem;
 	cursor: pointer;
 	transition: all 0.3s linear;
+	margin-top: 0.3rem;
 }
 
-.signup-submit-button:hover {
+.request-submit-button:hover {
 	background: var(--purple-main);
 }
 
-.signup-form-footer {
+#image-uploader {
+	border: none;
+	background: var(--green-light);
+	padding: 0.2rem;
+}
+
+.request-svg {
+	padding-top: 2.5rem;
+}
+
+.request-form-footer {
 	margin-top: 0.5rem;
 	font-size: 0.8rem;
 	display: flex;
 }
 
-.signup-form-footer-link {
+.request-form-footer-link {
 	color: var(--blue-main);
 	display: inline-block;
 	text-decoration: none;
