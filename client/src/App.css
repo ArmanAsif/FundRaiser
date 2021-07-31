@@ -1,0 +1,40 @@
+:root {
+	--white-main: #ffffff;
+	--black-main: #000000;
+	--blue-main: #1f93ff;
+	--purple-main: #8f05aa;
+	--green-main: #006e2e;
+	--red-main: #c41d1d;
+	--pink-main: #d1085c;
+	--gray-main: #434849;
+	--yellow-main: #f3cf06;
+
+	--white-light: #eef7fc;
+	--black-light: #303b41;
+	--blue-light: #bfddfc;
+	--purple-light: #d400ff;
+	--green-light: #d2ffe5;
+	--red-light: #ff0000;
+	--pink-light: #f00868;
+	--gray-light: #9da0aa;
+	--yellow-light: #f3cf06;
+
+	--white-dark: #c5d5e0;
+	--black-dark: #000000;
+	--blue-dark: #00315f;
+	--purple-dark: #5f116e;
+	--green-dark: #00441c;
+	--red-dark: #7a0000;
+	--pink-dark: #bd0350;
+	--gray-dark: #8a8080;
+	--yellow-dark: #f3cf06;
+
+	--box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
