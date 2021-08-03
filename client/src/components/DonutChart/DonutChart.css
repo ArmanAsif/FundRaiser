@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800,800i&display=swap");
+
+.donut-container {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	margin: 1rem;
+	justify-content: center;
+	padding: 0.7rem;
+	box-shadow: var(--box-shadow);
+	border-radius: 0.2rem;
+}
+
+.donut-container .circle {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	margin-right: 20px;
+}
+
+.donut-container .circle:before,
+.donut-container .circle:after {
+	content: "";
+	display: block;
+}
+
+.donut-container .circle:before {
+	margin-left: 50%;
+	height: 100%;
+	transform-origin: left;
+	border-radius: 0 100% 100% 0 / 50%;
+}
+
+.donut-container .circle:after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	background: var(--white-main);
+}
+
+/* .donut-container .details h1,
+.donut-container .details h2 {
+	margin: 0;
+	padding: 0;
+	color: #000;
+	letter-spacing: 0.16px;
+}
+
+.donut-container .details h3 {
+	font: 700 16px/22px "Open Sans";
+}
+
+.donut-container .details h2 {
+	font: 900 30px/41px "Open Sans";
+}
+
+.donut-container .details ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.donut-container .details ul li {
+	font-family: "Open sans";
+	display: flex;
+	margin: 10px 0;
+	align-items: center;
+}
+
+.donut-container .details ul li.indicator:before {
+	content: "";
+	width: 20px;
+	height: 20px;
+	display: block;
+	border-radius: 100%;
+	margin-right: 10px;
+} */

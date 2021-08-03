@@ -1,0 +1,40 @@
+.donate-hero-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 8% 0 12%;
+	background: var(--green-light);
+}
+
+.donate-hero-text {
+	margin-bottom: 1.2rem;
+}
+
+.donate-hero-text p {
+	font-size: 1.8rem;
+	font-weight: 600;
+	color: var(--green-main);
+}
+
+.donate-hero-button {
+	font-size: 1rem;
+	font-weight: 500;
+	text-decoration: none;
+	border: 2px solid var(--green-main);
+	border-radius: 1rem;
+	padding: 0.25rem 1rem;
+	color: var(--green-main);
+	transition: all 0.3s linear;
+}
+
+.donate-hero-button:hover {
+	background: var(--white-light);
+}
+
+.donate-container {
+	padding: 0 12% 2rem;
+	/* background: var(--white-light); */
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}

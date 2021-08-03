@@ -7,8 +7,8 @@ const SignupSvg = ({ props }) => {
 				xmlns="http://www.w3.org/2000/svg"
 				xmlnsXlink="http://www.w3.org/1999/xlink"
 				viewBox="0 0 400 300"
-				width={400}
-				height={400}
+				width={450}
+				height={350}
 				className="prefix__illustration prefix__styles_illustrationTablet__1DWOa"
 				{...props}
 			>

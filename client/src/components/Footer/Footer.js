@@ -1,5 +1,5 @@
 import React from "react";
-import FooterSvg from "../SVG/FooterSvg";
+// import FooterSvg from "../SVG/FooterSvg";
 import "./Footer.css";
 
 const Footer = () => {
@@ -10,11 +10,16 @@ const Footer = () => {
 					<img src="./images/logo.png" alt="logo" />
 					<p>Fund Raiser</p>
 				</div>
-				<h5>Gulshan, Dhaka, Bangladesh</h5>
+				<span>Gulshan Dhaka Bangladesh</span>
 			</div>
 
+			{/* <FooterSvg /> */}
+
 			<div className="footer-center">
-				<FooterSvg />
+				<i className="fa fa-apple"></i>
+				<i className="fa fa-windows"></i>
+				<i className="fa fa-android"></i>
+				<p>You can download app</p>
 			</div>
 
 			<div className="footer-right">
@@ -25,7 +30,7 @@ const Footer = () => {
 					<i className="fa fa-linkedin"></i>
 				</div>
 				<p>
-					Made With <i className="fa fa-heart-o"></i> by Arman Asif
+					Made with <i className="fa fa-heart-o"></i> by Arman Asif
 				</p>
 			</div>
 		</div>

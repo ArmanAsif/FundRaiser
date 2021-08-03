@@ -4,6 +4,7 @@
 	justify-content: space-evenly;
 	align-items: center;
 	background: var(--green-light);
+	padding: 3rem 0;
 }
 
 .footer-logo {
@@ -24,10 +25,21 @@
 	color: var(--green-main);
 }
 
-.footer-left h5 {
+.footer-left span {
 	margin-left: 0.3rem;
-	font-size: 0.8rem;
-	font-weight: 400;
+	font-size: 0.75rem;
+}
+
+.footer-center i {
+	padding: 0.5rem;
+	font-size: 1.8rem;
+	color: var(--gray-light);
+	cursor: pointer;
+}
+
+.footer-center p {
+	text-align: center;
+	font-size: 0.75rem;
 }
 
 .footer-right {
@@ -35,17 +47,23 @@
 }
 
 .footer-right .icons i {
-	padding: 0.5rem 1rem;
+	padding: 0.5rem;
 	font-size: 1.5rem;
-	color: var(--green-main);
+	color: var(--gray-light);
 	cursor: pointer;
 }
 
 .footer-right p {
-	font-size: 1rem;
+	font-size: 0.75rem;
 }
 
 .footer-right p i {
-	font-size: 1.5rem;
-	color: var(--green-main);
+	font-size: 0.65rem;
+	font-weight: 600;
+}
+
+.footer-center i:hover,
+.footer-right .icons i:hover {
+	color: var(--gray-main);
+	transition: all 0.25s linear;
 }

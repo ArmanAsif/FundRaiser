@@ -2,14 +2,14 @@
 	width: 100%;
 	height: 100%;
 	display: flex;
-	justify-content: space-evenly;
-	padding: 5rem;
+	justify-content: flex-start;
+	padding: 2rem 12% 3rem;
 	background: var(--green-light);
 }
 
 .request-form-container {
 	width: 20rem;
-	padding: 0 3rem;
+	margin: 0 8% 0 12%;
 }
 
 .request-form-container h3 {

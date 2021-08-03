@@ -1,11 +1,11 @@
 import React from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import "./RequestScreen.css";
+import "./ApproveScreen.css";
 // import { Link } from "react-router-dom";
-import RequestSvg from "../../components/SVG/RequestSvg";
+import ApproveSvg from "../../components/SVG/ApproveSvg";
 
-const RequestScreen = () => {
+const ApproveScreen = () => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		// dispatch(login(email, password));
@@ -15,10 +15,14 @@ const RequestScreen = () => {
 		<>
 			<Header />
 
-			<div className="request-container">
-				<div className="request-form-container">
+			<div className="approve-container">
+				<div className="approve-svg">
+					<ApproveSvg />
+				</div>
+
+				<div className="approve-form-container">
 					<h3>Form Fillup</h3>
-					<form className="request-form" onSubmit={submitHandler}>
+					<form className="approve-form" onSubmit={submitHandler}>
 						<label>Enter NID:</label>
 						<input
 							type="text"
@@ -67,24 +71,20 @@ const RequestScreen = () => {
 							//   onChange={uploadFileHandler}
 						/>
 
-						<button type="submit" className="request-submit-button">
+						<button type="submit" className="approve-submit-button">
 							submit
 						</button>
 
-						{/* <div className="request-form-footer">
-							<p>Already request?</p>
+						{/* <div className="approve-form-footer">
+							<p>Already approve?</p>
 							<Link
 								to={"/login"}
-								className="request-form-footer-link"
+								className="approve-form-footer-link"
 							>
 								Login
 							</Link>
 						</div> */}
 					</form>
-				</div>
-
-				<div className="request-svg">
-					<RequestSvg />
 				</div>
 			</div>
 
@@ -93,4 +93,4 @@ const RequestScreen = () => {
 	);
 };
 
-export default RequestScreen;
+export default ApproveScreen;
