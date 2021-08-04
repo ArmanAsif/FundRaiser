@@ -17,7 +17,7 @@
 	--red-light: #d1a4a4;
 	--pink-light: #f00868;
 	--gray-light: #bdbdbd;
-	--yellow-light: #f3cf06;
+	--yellow-light: #ffe033;
 
 	--white-dark: #c5d5e0;
 	--black-dark: #000000;
@@ -27,7 +27,7 @@
 	--red-dark: #7a0000;
 	--pink-dark: #bd0350;
 	--gray-dark: #8a8080;
-	--yellow-dark: #f3cf06;
+	--yellow-dark: #857100;
 
 	--box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }

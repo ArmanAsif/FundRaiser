@@ -16,6 +16,24 @@
 	color: var(--green-main);
 }
 
+#ordered {
+	animation: ordered 7s linear infinite;
+}
+
+@keyframes ordered {
+	0% {
+		opacity: 0;
+	}
+	15% {
+		opacity: 1;
+		fill: var(--green-main);
+	}
+	55%,
+	100% {
+		opacity: 0;
+	}
+}
+
 .donate-hero-button {
 	font-size: 1rem;
 	font-weight: 500;
@@ -33,7 +51,6 @@
 
 .donate-container {
 	padding: 0 12% 2rem;
-	/* background: var(--white-light); */
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;

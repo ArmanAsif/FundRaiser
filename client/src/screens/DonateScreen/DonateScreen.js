@@ -34,7 +34,7 @@ const DonateScreen = () => {
 			</svg>
 
 			<div className="donate-container">
-				<DonutChart
+				{/* <DonutChart
 					percentage={30}
 					colorOn="var(--green-light)"
 					colorOff="var(--green-main)"
@@ -42,18 +42,18 @@ const DonateScreen = () => {
 					labelOn="You"
 					circleColor="var(--green-light)"
 					baseClass="customize"
-					// textStyle={{
-					// 	color: "#ff0000",
-					// }}
-					// labelStyle={{
-					// 	off: {
-					// 		fontSize: "16px",
-					// 	},
-					// 	on: {
-					// 		fontSize: "18px",
-					// 	},
-					// }}
-				/>
+					textStyle={{
+						color: "#ff0000",
+					}}
+					labelStyle={{
+						off: {
+							fontSize: "16px",
+						},
+						on: {
+							fontSize: "18px",
+						},
+					}}
+				/> */}
 			</div>
 			<Footer />
 		</>

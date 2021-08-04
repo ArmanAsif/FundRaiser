@@ -8,6 +8,16 @@
 
 .hero-text {
 	margin-bottom: 1.2rem;
+	animation: hero-text 0.75s linear;
+}
+
+@keyframes hero-text {
+	0% {
+		transform: translateY(-30%);
+	}
+	100% {
+		transform: translateY(0%);
+	}
 }
 
 .hero-text p {
@@ -29,4 +39,37 @@
 
 .hero-button:hover {
 	background: var(--white-light);
+}
+
+.hero-svg {
+	animation: hero-svg 0.75s linear;
+}
+
+@keyframes hero-svg {
+	0% {
+		transform: translateX(-10%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+#glitter {
+	transform-box: fill-box;
+	transform-origin: 50% 50%;
+	animation: glitter 1.75s infinite linear;
+}
+
+@keyframes glitter {
+	0% {
+		fill: var(--yellow-light);
+		transform: rotate(0deg);
+	}
+	50% {
+		fill: var(--white-light);
+	}
+	100% {
+		fill: var(--white-main);
+		transform: rotate(360deg);
+	}
 }
