@@ -2,9 +2,9 @@ import React from "react";
 import "./DonateScreen.css";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import DonutChart from "../../components/DonutChart/DonutChart";
 import { Link } from "react-router-dom";
 import DonateSvg from "../../components/SVG/DonateSvg";
+import Circle from "../../components/Circle/Circle";
 
 const DonateScreen = () => {
 	return (
@@ -34,26 +34,9 @@ const DonateScreen = () => {
 			</svg>
 
 			<div className="donate-container">
-				{/* <DonutChart
-					percentage={30}
-					colorOn="var(--green-light)"
-					colorOff="var(--green-main)"
-					labelOff="PAID"
-					labelOn="You"
-					circleColor="var(--green-light)"
-					baseClass="customize"
-					textStyle={{
-						color: "#ff0000",
-					}}
-					labelStyle={{
-						off: {
-							fontSize: "16px",
-						},
-						on: {
-							fontSize: "18px",
-						},
-					}}
-				/> */}
+				<Circle />
+				<Circle />
+				<Circle />
 			</div>
 			<Footer />
 		</>

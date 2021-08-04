@@ -1,0 +1,48 @@
+.outter-circle {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.circle-container {
+	width: 100px;
+	height: 100px;
+	background: var(--blue-light);
+	position: relative;
+	border-radius: 100%;
+	box-shadow: var(--box-shadow);
+}
+
+.inner-circle {
+	width: 80px;
+	height: 80px;
+	background: var(--white-main);
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	border-radius: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 0.8rem;
+	font-family: "Segoe UI", Tahoma;
+}
+
+.top-semicircle {
+	width: 100px;
+	height: 50px;
+	background: var(--white-main);
+	border-radius: 100px 100px 0 0;
+	position: relative;
+	overflow: hidden;
+}
+
+.bottom-semicircle {
+	width: 100px;
+	height: 50px;
+	background: var(--white-main);
+	border-radius: 0 0 100px 100px;
+	position: relative;
+	overflow: hidden;
+}

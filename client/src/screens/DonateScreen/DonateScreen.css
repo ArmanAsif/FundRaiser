@@ -21,14 +21,16 @@
 }
 
 @keyframes ordered {
-	0% {
+	0%,
+	13% {
 		opacity: 0;
 	}
-	15% {
+	15%,
+	73% {
 		opacity: 1;
 		fill: var(--green-main);
 	}
-	55%,
+	75%,
 	100% {
 		opacity: 0;
 	}
