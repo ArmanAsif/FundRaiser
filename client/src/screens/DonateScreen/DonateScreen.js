@@ -4,12 +4,13 @@ import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
 import DonateSvg from "../../components/SVG/DonateSvg";
-import Circle from "../../components/Circle/Circle";
+import Card from "../../components/Card/Card";
 
 const DonateScreen = () => {
 	return (
 		<>
 			<Header />
+
 			<div className="donate-hero-container">
 				<div>
 					<div className="donate-hero-text">
@@ -33,11 +34,93 @@ const DonateScreen = () => {
 				></path>
 			</svg>
 
-			<div className="donate-container">
-				<Circle />
-				<Circle />
-				<Circle />
+			<div className="donate-list-container">
+				<Card
+					progress={17}
+					problem={"Kidney Damaged"}
+					duration={16}
+					dueMoney={250000}
+				/>
+				<Card
+					progress={8}
+					problem={"Blood Cancer"}
+					duration={16}
+					dueMoney={250000}
+				/>
+				<Card
+					progress={34}
+					problem={"Brain Tumor"}
+					duration={16}
+					dueMoney={250000}
+				/>
+				<Card
+					progress={47}
+					problem={"Blood Cancer"}
+					duration={16}
+					dueMoney={250000}
+				/>
+				<Card
+					progress={27}
+					problem={"Blood Cancer"}
+					duration={16}
+					dueMoney={250000}
+				/>
+				<Card
+					progress={74}
+					problem={"Blood Cancer"}
+					duration={16}
+					dueMoney={250000}
+				/>
+				<Card
+					progress={66}
+					problem={"Blood Cancer"}
+					duration={16}
+					dueMoney={250000}
+				/>
+				<Card
+					progress={85}
+					problem={"Blood Cancer"}
+					duration={16}
+					dueMoney={250000}
+				/>
+				<Card
+					progress={17}
+					problem={"Kidney Damaged"}
+					duration={16}
+					dueMoney={250000}
+				/>
+				<Card
+					progress={34}
+					problem={"Brain Tumor"}
+					duration={16}
+					dueMoney={250000}
+				/>
+				<Card
+					progress={17}
+					problem={"Kidney Damaged"}
+					duration={16}
+					dueMoney={250000}
+				/>
+				<Card
+					progress={34}
+					problem={"Brain Tumor"}
+					duration={16}
+					dueMoney={250000}
+				/>
+				<Card
+					progress={17}
+					problem={"Kidney Damaged"}
+					duration={16}
+					dueMoney={250000}
+				/>
+				<Card
+					progress={34}
+					problem={"Brain Tumor"}
+					duration={16}
+					dueMoney={250000}
+				/>
 			</div>
+
 			<Footer />
 		</>
 	);

@@ -11,11 +11,12 @@ const TopRect = (degree) => keyframes`
 const TopRectangle = styled.div`
 	height: 50px;
 	width: 100px;
-	background: var(--blue-main);
+	background: var(--circle-color);
 	position: absolute;
 	top: 50px;
 	transform-origin: 50% 0;
-	animation: ${(props) => TopRect(props.degree)} 2.5s forwards linear;
+	animation: ${(props) => TopRect(props.degree)} ${(props) => props.time}s
+		forwards linear;
 `;
 
 const BottomRect = (degree) => keyframes`
@@ -27,25 +28,65 @@ const BottomRect = (degree) => keyframes`
 const BottomRectangle = styled.div`
 	height: 50px;
 	width: 100px;
-	background: var(--blue-main);
+	background: var(--circle-color);
 	position: absolute;
 	top: -50px;
 	transform-origin: 50% 100%;
-	animation: ${(props) => BottomRect(props.degree)} 2.5s forwards linear;
-	animation-delay: 2.5s;
+	animation: ${(props) => BottomRect(props.degree)} ${(props) => props.time}s
+		forwards linear;
+	animation-delay: ${(props) => props.delayAnimation}s;
 `;
 
-const Circle = () => {
+const InnerCircle = styled.div`
+	width: 80px;
+	height: 80px;
+	background: var(--white-light);
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	border-radius: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.45rem;
+	font-weight: 700;
+	font-family: "Segoe UI", Tahoma;
+`;
+
+const Circle = ({ progress }) => {
+	let displacement = (progress * 180 * 2) / 100;
+	let upperDegree = displacement;
+	let upperTime = 0;
+	let lowerDegree = 0;
+	let lowerTime = 0;
+
+	if (progress > 50) {
+		lowerDegree = ((progress - 50) * 180 * 2) / 100;
+		upperDegree = upperDegree - lowerDegree;
+	}
+
+	upperTime = upperDegree * 0.015;
+	lowerTime = lowerDegree * 0.015;
+
 	return (
 		<div className="outter-circle">
 			<div className="circle-container">
 				<div className="top-semicircle">
-					<TopRectangle degree={175}></TopRectangle>
+					<TopRectangle
+						degree={upperDegree}
+						time={upperTime}
+					></TopRectangle>
 				</div>
+
 				<div className="bottom-semicircle">
-					<BottomRectangle degree={170}></BottomRectangle>
+					<BottomRectangle
+						degree={lowerDegree}
+						time={lowerTime}
+						delayAnimation={upperTime}
+					></BottomRectangle>
 				</div>
-				<div className="inner-circle">Pure CSS</div>
+
+				<InnerCircle>{progress}%</InnerCircle>
 			</div>
 		</div>
 	);

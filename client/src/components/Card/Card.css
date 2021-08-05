@@ -1,0 +1,46 @@
+.card-container {
+	width: 17rem;
+	height: 8rem;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 0.7rem;
+	margin: 0 1rem 1.5rem 0;
+	box-shadow: var(--box-shadow);
+	border-radius: 2px;
+	background: var(--white-light);
+}
+
+.card-circle {
+	padding: 0.9rem 0;
+}
+
+.card-text {
+	text-align: right;
+	padding: 0.9rem 0;
+}
+
+.card-text p:nth-child(1),
+.card-text p:nth-child(2) {
+	font-size: 0.8rem;
+	margin-bottom: 0.15rem;
+}
+
+.card-text p:nth-child(3) {
+	font-size: 1.5rem;
+	font-weight: 400;
+	color: var(--red-main);
+}
+
+.card-details-button {
+	margin-top: 0.5rem;
+	font-size: 0.92rem;
+	color: var(--blue-dark);
+	display: inline-block;
+	text-decoration: none;
+	margin: 0 0.2rem;
+	font-style: italic;
+}
+
+.card-details-button:hover {
+	color: var(--purple-main);
+}

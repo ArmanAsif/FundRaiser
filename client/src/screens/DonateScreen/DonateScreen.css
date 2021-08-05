@@ -51,8 +51,8 @@
 	background: var(--white-light);
 }
 
-.donate-container {
-	padding: 0 12% 2rem;
+.donate-list-container {
+	padding: 0 7% 4rem;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
