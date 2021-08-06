@@ -15,14 +15,18 @@
 }
 
 .card-text {
+	position: relative;
 	text-align: right;
-	padding: 0.9rem 0;
+	padding: 0.4rem 0;
 }
 
 .card-text p:nth-child(1),
 .card-text p:nth-child(2) {
-	font-size: 0.8rem;
-	margin-bottom: 0.15rem;
+	font-size: 0.85rem;
+}
+
+.card-text p:nth-child(1) {
+	margin-bottom: 0.3rem;
 }
 
 .card-text p:nth-child(3) {
@@ -32,7 +36,9 @@
 }
 
 .card-details-button {
-	margin-top: 0.5rem;
+	right: 0;
+	bottom: 0.45rem;
+	position: absolute;
 	font-size: 0.92rem;
 	color: var(--blue-dark);
 	display: inline-block;

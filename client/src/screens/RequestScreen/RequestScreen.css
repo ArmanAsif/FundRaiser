@@ -22,15 +22,21 @@
 	font-size: 0.85rem;
 }
 
-.request-form input {
+.request-form input,
+.request-form select {
 	width: 100%;
 	padding: 0.8rem;
 	margin: 0.5rem 0;
 	border: none;
 	outline: none;
+	appearance: none;
 	background: var(--white-light);
 	border-radius: 1rem;
 	border: 2px solid var(--green-main);
+}
+
+select option {
+	font-size: 0.95rem;
 }
 
 .request-submit-button {
@@ -44,7 +50,7 @@
 	border-radius: 0.2rem;
 	cursor: pointer;
 	transition: all 0.3s linear;
-	margin-top: 0.3rem;
+	margin-top: 0.5rem;
 }
 
 .request-submit-button:hover {

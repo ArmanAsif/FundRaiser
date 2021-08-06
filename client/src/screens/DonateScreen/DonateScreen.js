@@ -37,7 +37,7 @@ const DonateScreen = () => {
 			<div className="donate-list-container">
 				<Card
 					progress={17}
-					problem={"Kidney Damaged"}
+					problem={"Diabetes"}
 					duration={16}
 					dueMoney={250000}
 				/>
@@ -55,13 +55,13 @@ const DonateScreen = () => {
 				/>
 				<Card
 					progress={47}
-					problem={"Blood Cancer"}
+					problem={"Accidental Injury"}
 					duration={16}
 					dueMoney={250000}
 				/>
 				<Card
 					progress={27}
-					problem={"Blood Cancer"}
+					problem={"Pulmonary Disease"}
 					duration={16}
 					dueMoney={250000}
 				/>
@@ -73,13 +73,13 @@ const DonateScreen = () => {
 				/>
 				<Card
 					progress={66}
-					problem={"Blood Cancer"}
+					problem={"Accidental Injury"}
 					duration={16}
 					dueMoney={250000}
 				/>
 				<Card
 					progress={85}
-					problem={"Blood Cancer"}
+					problem={"Accidental Injury"}
 					duration={16}
 					dueMoney={250000}
 				/>
@@ -97,13 +97,13 @@ const DonateScreen = () => {
 				/>
 				<Card
 					progress={17}
-					problem={"Kidney Damaged"}
+					problem={"Pulmonary Disease"}
 					duration={16}
 					dueMoney={250000}
 				/>
 				<Card
 					progress={34}
-					problem={"Brain Tumor"}
+					problem={"Diabetes"}
 					duration={16}
 					dueMoney={250000}
 				/>

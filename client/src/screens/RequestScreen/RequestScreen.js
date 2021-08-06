@@ -1,9 +1,20 @@
 import React from "react";
+import "./RequestScreen.css";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import "./RequestScreen.css";
-// import { Link } from "react-router-dom";
 import RequestSvg from "../../components/SVG/RequestSvg";
+import DatePicker from "../../components/DatePicker/DatePicker";
+
+const diseaseOption = [
+	"Blood Cancer",
+	"Lung Infections",
+	"Pulmonary Disease",
+	"Heart Stroke",
+	"Brain Tumor",
+	"Tuberculosis",
+	"Accidental Injury",
+	"Diabetes",
+];
 
 const RequestScreen = () => {
 	const submitHandler = (e) => {
@@ -27,21 +38,21 @@ const RequestScreen = () => {
 							// onChange={(e) => setEmail(e.target.value)}
 						/>
 
-						<label>Enter Problem:</label>
-						<input
-							type="text"
-							placeholder="Enter Problem"
-							// value={email}
-							// onChange={(e) => setEmail(e.target.value)}
-						/>
+						<label>Choose Your Problem:</label>
+						<select>
+							{diseaseOption.map((data, index) => {
+								return (
+									<option
+										key={index}
+										value={data}
+										label={data}
+									/>
+								);
+							})}
+						</select>
 
-						<label>Problem Description:</label>
-						<input
-							type="text"
-							placeholder="Problem Description"
-							// value={password}
-							// onChange={(e) => setPassword(e.target.value)}
-						/>
+						<label>Submission Date:</label>
+						<DatePicker />
 
 						<label>Enter Amount:</label>
 						<input
@@ -50,7 +61,6 @@ const RequestScreen = () => {
 							// value={password}
 							// onChange={(e) => setPassword(e.target.value)}
 						/>
-
 						<label>Bank Account:</label>
 						<input
 							type="text"
@@ -70,16 +80,6 @@ const RequestScreen = () => {
 						<button type="submit" className="request-submit-button">
 							submit
 						</button>
-
-						{/* <div className="request-form-footer">
-							<p>Already request?</p>
-							<Link
-								to={"/login"}
-								className="request-form-footer-link"
-							>
-								Login
-							</Link>
-						</div> */}
 					</form>
 				</div>
 
