@@ -5,11 +5,12 @@
 	height: 3rem;
 	margin: 0.5rem auto;
 	background-color: var(--white-light);
-	border-radius: 1rem;
-	border: 2px solid var(--green-main);
 	cursor: pointer;
 	user-select: none;
 	transition: all 0.3s linear;
+	border-radius: 0.3rem;
+	border: 1px solid var(--green-main);
+	box-shadow: var(--box-shadow);
 }
 
 .date-picker .selected-date {
@@ -26,7 +27,7 @@
 	display: none;
 	position: absolute;
 	width: 20.25rem;
-	top: 3.35rem;
+	top: 3.315rem;
 	left: -0.125rem;
 	right: 0;
 	background-color: var(--green-light);
@@ -44,8 +45,9 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	color: var(--green-main);
 	border-bottom: 1px solid var(--gray-main);
+	font-size: 1.25rem;
+	font-weight: 500;
 }
 
 .date-picker .dates .month .arrows {
@@ -73,10 +75,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-size: 1.04rem;
 }
 
 .date-picker .dates .days .day.selected {
-	color: var(--green-main);
 	font-size: 1.3rem;
 	font-weight: 500;
 }

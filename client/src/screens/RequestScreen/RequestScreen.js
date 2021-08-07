@@ -4,6 +4,7 @@ import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import RequestSvg from "../../components/SVG/RequestSvg";
 import DatePicker from "../../components/DatePicker/DatePicker";
+import FileUploader from "../../components/FileUploader/FileUploader";
 
 const diseaseOption = [
 	"Blood Cancer",
@@ -39,17 +40,20 @@ const RequestScreen = () => {
 						/>
 
 						<label>Choose Your Problem:</label>
-						<select>
-							{diseaseOption.map((data, index) => {
-								return (
-									<option
-										key={index}
-										value={data}
-										label={data}
-									/>
-								);
-							})}
-						</select>
+						<div className="request-form-select">
+							<select>
+								{diseaseOption.map((data, index) => {
+									return (
+										<option
+											key={index}
+											value={data}
+											label={data}
+										/>
+									);
+								})}
+							</select>
+							<span className="request-select-arrow"></span>
+						</div>
 
 						<label>Submission Date:</label>
 						<DatePicker />
@@ -69,16 +73,10 @@ const RequestScreen = () => {
 							// onChange={(e) => setPassword(e.target.value)}
 						/>
 
-						{/* <label>Insert Document:</label> */}
-						<input
-							type="file"
-							id="image-uploader"
-							//   name="image"
-							//   onChange={uploadFileHandler}
-						/>
+						<FileUploader />
 
 						<button type="submit" className="request-submit-button">
-							submit
+							send
 						</button>
 					</form>
 				</div>

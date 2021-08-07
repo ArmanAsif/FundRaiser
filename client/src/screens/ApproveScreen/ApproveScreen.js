@@ -63,27 +63,9 @@ const ApproveScreen = () => {
 							// onChange={(e) => setPassword(e.target.value)}
 						/>
 
-						{/* <label>Insert Document:</label> */}
-						<input
-							type="file"
-							id="image-uploader"
-							//   name="image"
-							//   onChange={uploadFileHandler}
-						/>
-
 						<button type="submit" className="approve-submit-button">
 							submit
 						</button>
-
-						{/* <div className="approve-form-footer">
-							<p>Already approve?</p>
-							<Link
-								to={"/login"}
-								className="approve-form-footer-link"
-							>
-								Login
-							</Link>
-						</div> */}
 					</form>
 				</div>
 			</div>

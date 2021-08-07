@@ -31,36 +31,75 @@
 	outline: none;
 	appearance: none;
 	background: var(--white-light);
-	border-radius: 1rem;
-	border: 2px solid var(--green-main);
+	border-radius: 0.3rem;
+	border: 1px solid var(--green-main);
+	box-shadow: var(--box-shadow);
 }
 
-select option {
+.request-form-select select {
+	font-size: 0.9rem;
+}
+
+.request-form-select {
+	position: relative;
+}
+
+.request-select-arrow {
+	position: absolute;
+	top: 15%;
+	right: 1%;
+	display: inline-block;
+	height: 70%;
+	width: 3rem;
+	pointer-events: none;
+}
+
+.request-select-arrow::before,
+.request-select-arrow::after {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.request-select-arrow::before {
+	border-left: 0.7rem solid transparent;
+	border-right: 0.7rem solid transparent;
+	border-bottom: 0.7rem solid var(--green-main);
+	top: 35%;
+}
+
+.request-select-arrow::after {
+	border-left: 0.7rem solid transparent;
+	border-right: 0.7rem solid transparent;
+	border-top: 0.7rem solid var(--green-main);
+	top: 68%;
+}
+
+.request-form-select select option {
+	background: var(--green-light);
 	font-size: 0.95rem;
 }
 
 .request-submit-button {
 	border: none;
 	color: var(--white-main);
-	background: var(--green-main);
+	background: var(--circle-color);
 	display: inline-block;
-	padding: 0.1rem 1rem 0.3rem;
+	padding: 0.15rem 1rem 0.3rem;
 	text-decoration: none;
 	font-size: 0.9rem;
 	border-radius: 0.2rem;
 	cursor: pointer;
 	transition: all 0.3s linear;
 	margin-top: 0.5rem;
+	box-shadow: var(--box-shadow);
 }
 
 .request-submit-button:hover {
-	background: var(--purple-main);
-}
-
-#image-uploader {
-	border: none;
-	background: var(--green-light);
-	padding: 0.2rem;
+	background: var(--green-main);
 }
 
 .request-svg {

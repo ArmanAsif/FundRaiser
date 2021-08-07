@@ -48,9 +48,9 @@ const DatePicker = () => {
 
 		mth_element.textContent = months[month] + " " + year;
 
-		// selected_date_element.textContent = formatDate(date);
+		let currDay = day < 10 ? "0" + day : day;
 		selected_date_element.textContent =
-			months[month] + " " + day + ", " + year;
+			months[month] + " " + currDay + ", " + year;
 		selected_date_element.dataset.value = selectedDate;
 
 		populateDates();
@@ -107,7 +107,9 @@ const DatePicker = () => {
 			for (let i = 0; i < amount_days; i++) {
 				const day_element = document.createElement("div");
 				day_element.classList.add("day");
-				day_element.textContent = i + 1;
+				let eachCurrentDay = i + 1;
+				day_element.textContent =
+					i < 9 ? "0" + eachCurrentDay : eachCurrentDay;
 
 				if (
 					selectedDay === i + 1 &&
@@ -124,13 +126,18 @@ const DatePicker = () => {
 					selectedDay = i + 1;
 					selectedMonth = month;
 					selectedYear = year;
+					let currSelectedDay =
+						selectedDay < 10 ? "0" + selectedDay : selectedDay;
 
 					selected_date_element.textContent =
-						formatDate(selectedDate);
+						months[selectedMonth] +
+						" " +
+						currSelectedDay +
+						", " +
+						selectedYear;
 					selected_date_element.dataset.value = selectedDate;
 
 					populateDates();
-					console.log(selectedDate);
 				});
 
 				days_element.appendChild(day_element);
@@ -145,22 +152,6 @@ const DatePicker = () => {
 			}
 
 			return false;
-		}
-
-		function formatDate(d) {
-			let day = d.getDate();
-			if (day < 10) {
-				day = "0" + day;
-			}
-
-			let month = d.getMonth() + 1;
-			if (month < 10) {
-				month = "0" + month;
-			}
-
-			let year = d.getFullYear();
-
-			return day + " / " + month + " / " + year;
 		}
 	});
 
