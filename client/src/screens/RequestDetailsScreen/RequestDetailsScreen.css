@@ -1,0 +1,154 @@
+.request-details-container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: flex-start;
+	padding: 3rem 12%;
+	background: var(--green-light);
+}
+
+.request-details-svg {
+	margin: 2.5rem 12% 0 0;
+}
+
+.request-details-info {
+	width: 22rem;
+}
+
+.request-details-top {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	text-align: right;
+	padding: 0.75rem;
+	box-shadow: var(--box-shadow);
+	border-radius: 0.1rem;
+}
+
+.request-details-top-text p:nth-child(1) {
+	margin-top: 0.5rem;
+	font-size: 2rem;
+	font-weight: 500;
+	color: var(--red-light);
+}
+
+.request-details-top-text p:nth-child(2) {
+	font-size: 0.65rem;
+	letter-spacing: 0.1rem;
+}
+
+.request-details-bottom {
+	width: 100%;
+	margin-top: 0.3rem;
+}
+
+.request-details-disease,
+.request-details-author,
+.request-details-bank,
+.request-details-date {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 0 0.5rem;
+	border-bottom: 1px solid var(--circle-color);
+	font-size: 0.83rem;
+	text-transform: uppercase;
+}
+
+.request-details-disease p:nth-child(1),
+.request-details-author p:nth-child(1),
+.request-details-bank p:nth-child(1),
+.request-details-date p:nth-child(1) {
+	width: 20%;
+	text-align: left;
+}
+
+.request-details-disease p:nth-child(2),
+.request-details-author p:nth-child(2),
+.request-details-bank p:nth-child(2),
+.request-details-date p:nth-child(2) {
+	width: 75%;
+	text-align: right;
+}
+
+.request-details-modal {
+	margin: 0rem 0 1.5rem;
+	padding: 1rem 0 0.5rem;
+}
+
+.request-details-modal span {
+	margin-right: 1rem;
+	font-size: 0.85rem;
+}
+
+.request-details-form {
+	width: 100%;
+}
+
+.request-details-form label {
+	text-transform: uppercase;
+	font-size: 0.8rem;
+}
+
+.request-details-form input {
+	width: 100%;
+	padding: 0.8rem;
+	margin: 0.3rem 0 0.5rem;
+	border: none;
+	outline: none;
+	background: var(--white-light);
+	border-radius: 0.3rem;
+	border: 1px solid var(--green-main);
+	box-shadow: var(--box-shadow);
+}
+
+.request-details-submit-button {
+	border: none;
+	color: var(--white-main);
+	background: var(--circle-color);
+	display: inline-block;
+	padding: 0.1rem 1rem 0.3rem;
+	text-decoration: none;
+	font-size: 0.9rem;
+	border-radius: 0.2rem;
+	cursor: pointer;
+	transition: all 0.3s linear;
+	box-shadow: var(--box-shadow);
+	margin-top: 0.25rem;
+}
+
+.request-details-submit-button:hover {
+	background: var(--green-main);
+}
+
+#request-left-arrow {
+	animation: request-left-arrow 1.8s linear;
+}
+
+@keyframes request-left-arrow {
+	0% {
+		transform: translateX(10%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+#request-right-arrow {
+	animation: request-right-arrow 1.8s linear;
+}
+
+@keyframes request-right-arrow {
+	0% {
+		transform: translateX(-10%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+#blur.active {
+	filter: blur(0.5rem);
+	pointer-events: none;
+	user-select: none;
+}

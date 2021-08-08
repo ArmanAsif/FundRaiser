@@ -5,13 +5,15 @@ import LoginScreen from "./screens/LoginScreen/LoginScreen";
 import SignupScreen from "./screens/SignupScreen/SignupScreen";
 import DonateScreen from "./screens/DonateScreen/DonateScreen";
 import RequestScreen from "./screens/RequestScreen/RequestScreen";
-import ApproveScreen from "./screens/ApproveScreen/ApproveScreen";
+import AdminApproveScreen from "./screens/AdminApproveScreen/AdminApproveScreen";
+import RequestDetailsScreen from "./screens/RequestDetailsScreen/RequestDetailsScreen";
 
 function App() {
 	return (
 		<Router>
-			<Route path="/approve" component={ApproveScreen} />
-			<Route path="/request" component={RequestScreen} />
+			<Route path="/admin/approve/:id" component={AdminApproveScreen} />
+			<Route path="/request/:id" component={RequestDetailsScreen} />
+			<Route path="/request" component={RequestScreen} exact />
 			<Route path="/donate" component={DonateScreen} />
 			<Route path="/signup" component={SignupScreen} />
 			<Route path="/login" component={LoginScreen} />

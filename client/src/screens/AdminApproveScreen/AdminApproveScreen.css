@@ -42,7 +42,7 @@
 	color: var(--white-main);
 	background: var(--circle-color);
 	display: inline-block;
-	padding: 0.1rem 1rem 0.3rem;
+	padding: 0.1rem 0.75rem 0.3rem;
 	text-decoration: none;
 	font-size: 0.9rem;
 	border-radius: 0.2rem;

@@ -1,5 +1,4 @@
 import React from "react";
-// import FooterSvg from "../SVG/FooterSvg";
 import "./Footer.css";
 
 const Footer = () => {
@@ -7,13 +6,11 @@ const Footer = () => {
 		<div className="footer">
 			<div className="footer-left">
 				<div className="footer-logo">
-					<img src="./images/logo.png" alt="logo" />
+					<img src="/images/logo.png" alt="logo" />
 					<p>Fund Raiser</p>
 				</div>
 				<span>Gulshan Dhaka Bangladesh</span>
 			</div>
-
-			{/* <FooterSvg /> */}
 
 			<div className="footer-center">
 				<i className="fa fa-apple"></i>

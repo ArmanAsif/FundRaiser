@@ -13,7 +13,8 @@ const Card = ({ progress, problem, duration, dueMoney }) => {
 				<p>{problem}</p>
 				<p>Due {dueMoney} BDT</p>
 				<p>{duration} Days</p>
-				<Link to={"/approve"} className="card-details-button">
+
+				<Link to={"/request/12345"} className="card-details-button">
 					check
 				</Link>
 			</div>

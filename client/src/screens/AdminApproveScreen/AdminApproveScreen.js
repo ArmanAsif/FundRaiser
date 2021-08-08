@@ -1,11 +1,11 @@
 import React from "react";
-import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import "./ApproveScreen.css";
+import Footer from "../../components/Footer/Footer";
+import "./AdminApproveScreen.css";
 // import { Link } from "react-router-dom";
 import ApproveSvg from "../../components/SVG/ApproveSvg";
 
-const ApproveScreen = () => {
+const AdminApproveScreen = () => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		// dispatch(login(email, password));
@@ -64,7 +64,7 @@ const ApproveScreen = () => {
 						/>
 
 						<button type="submit" className="approve-submit-button">
-							submit
+							approve
 						</button>
 					</form>
 				</div>
@@ -75,4 +75,4 @@ const ApproveScreen = () => {
 	);
 };
 
-export default ApproveScreen;
+export default AdminApproveScreen;
