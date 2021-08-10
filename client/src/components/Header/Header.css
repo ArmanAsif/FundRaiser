@@ -45,7 +45,7 @@
 
 .login {
 	margin-left: 0.5rem;
-	border: 2px solid var(--green-main);
+	border: 2px solid var(--circle-color);
 	border-radius: 1rem;
 	padding: 0.2rem 1rem;
 	transition: all 0.3s linear;
@@ -53,4 +53,5 @@
 
 .login:hover {
 	color: var(--green-main);
+	background: var(--white-main);
 }

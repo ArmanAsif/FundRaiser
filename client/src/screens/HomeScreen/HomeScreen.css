@@ -73,3 +73,59 @@
 		transform: rotate(360deg);
 	}
 }
+
+.home-donate-list-header {
+	text-align: center;
+	font-size: 2rem;
+}
+
+.home-donate-list-container {
+	margin-top: 5rem;
+	padding: 0 7% 4rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.home-guideline {
+	padding: 0rem 12%;
+	background: var(--green-light);
+	display: flex;
+	justify-content: flex-start;
+	padding: 3rem 12%;
+}
+
+.home-guideline-svg {
+	margin-right: 10%;
+}
+
+.home-guideline-text {
+	width: 22rem;
+}
+
+.home-guideline-text p:nth-child(1) {
+	text-align: right;
+	font-size: 1.75rem;
+	margin: 2rem 0 1.5rem;
+}
+
+.home-guideline-text p:nth-child(2),
+.home-guideline-text p:nth-child(3),
+.home-guideline-text p:nth-child(4),
+.home-guideline-text p:nth-child(5),
+.home-guideline-text p:nth-child(6),
+.home-guideline-text p:nth-child(7),
+.home-guideline-text p:nth-child(8),
+.home-guideline-text p:nth-child(9) {
+	text-align: right;
+	padding: 1rem 0 0.5rem;
+	/* border-bottom: 1px solid var(--circle-color); */
+	font-size: 0.83rem;
+	text-transform: uppercase;
+}
+
+.home-guideline-text-link {
+	text-decoration: none;
+	color: var(--circle-color);
+	font-style: italic;
+}

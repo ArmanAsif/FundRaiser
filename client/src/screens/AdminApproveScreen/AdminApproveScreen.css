@@ -1,80 +1,151 @@
-.approve-container {
+.admin-approve-container {
 	width: 100%;
 	height: 100%;
 	display: flex;
 	justify-content: flex-start;
-	padding: 1rem 12% 3rem;
+	padding: 3rem 12%;
 	background: var(--green-light);
 }
 
-.approve-svg {
-	margin: 0 10% 0 3%;
+.admin-approve-svg {
+	margin: 2rem 12% 0 0;
 }
 
-.approve-form-container {
-	width: 20rem;
+.admin-approve-info {
+	width: 22rem;
 }
 
-.approve-form-container h3 {
-	letter-spacing: 0.1rem;
-	margin-bottom: 1rem;
+.admin-approve-top {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	text-align: right;
+	padding: 0.75rem;
+	box-shadow: var(--box-shadow);
+	border-radius: 0.1rem;
+}
+
+.admin-approve-top-text p:nth-child(1) {
+	margin-top: 0.5rem;
+	font-size: 2rem;
 	font-weight: 500;
+	color: var(--red-light);
 }
 
-.approve-form label {
+.admin-approve-top-text p:nth-child(2) {
+	font-size: 0.65rem;
+	letter-spacing: 0.1rem;
+}
+
+.admin-approve-bottom {
+	width: 100%;
+	margin-top: 1rem;
+}
+
+.admin-approve-disease,
+.admin-approve-author,
+.admin-approve-nid,
+.admin-approve-bank,
+.admin-approve-date {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 0 0.5rem;
+	border-bottom: 1px solid var(--circle-color);
+	font-size: 0.83rem;
+	text-transform: uppercase;
+}
+
+.admin-approve-disease p:nth-child(1),
+.admin-approve-author p:nth-child(1),
+.admin-approve-nid p:nth-child(1),
+.admin-approve-bank p:nth-child(1),
+.admin-approve-date p:nth-child(1) {
+	width: 20%;
+	text-align: left;
+}
+
+.admin-approve-disease p:nth-child(2),
+.admin-approve-author p:nth-child(2),
+.admin-approve-nid p:nth-child(2),
+.admin-approve-bank p:nth-child(2),
+.admin-approve-date p:nth-child(2) {
+	width: 75%;
+	text-align: right;
+}
+
+.admin-approve-modal {
+	margin: 0.5rem 0 0.75rem;
+	padding: 1rem 0 0.5rem;
+}
+
+.admin-approve-modal span {
+	margin-right: 1rem;
 	font-size: 0.85rem;
 }
 
-.approve-form input {
+.admin-approve-form {
 	width: 100%;
-	padding: 0.8rem;
-	margin: 0.5rem 0;
-	border: none;
-	outline: none;
-	background: var(--white-light);
-	border-radius: 0.3rem;
-	border: 1px solid var(--green-main);
-	box-shadow: var(--box-shadow);
 }
 
-.approve-submit-button {
+.admin-approve-button {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.admin-approve-approve-button,
+.admin-approve-discard-button {
 	border: none;
 	color: var(--white-main);
 	background: var(--circle-color);
 	display: inline-block;
-	padding: 0.1rem 0.75rem 0.3rem;
+	padding: 0.1rem 1rem 0.3rem;
 	text-decoration: none;
 	font-size: 0.9rem;
 	border-radius: 0.2rem;
 	cursor: pointer;
 	transition: all 0.3s linear;
 	box-shadow: var(--box-shadow);
-	margin-top: 0.4rem;
+	margin-top: 0.25rem;
 }
 
-.approve-submit-button:hover {
+.admin-approve-approve-button:hover,
+.admin-approve-discard-button:hover {
 	background: var(--green-main);
 }
 
-#image-uploader {
-	border: none;
-	background: var(--green-light);
-	padding: 0.2rem;
+#admin-approve-blur.active {
+	filter: blur(0.4rem);
+	pointer-events: none;
+	user-select: none;
 }
 
-.approve-svg {
-	padding-top: 2.5rem;
+#approve-search-bar {
+	animation: approve-search-bar 2s linear;
 }
 
-.approve-form-footer {
-	margin-top: 0.5rem;
-	font-size: 0.8rem;
-	display: flex;
+@keyframes approve-search-bar {
+	0% {
+		transform: translateX(-10%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
 }
 
-.approve-form-footer-link {
-	color: var(--blue-main);
-	display: inline-block;
-	text-decoration: none;
-	margin: 0 0.2rem;
+#approve-search-bar-icon {
+	opacity: 0;
+	animation: approve-search-bar-icon 2.5s linear forwards;
+}
+
+@keyframes approve-search-bar-icon {
+	0%,
+	90% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

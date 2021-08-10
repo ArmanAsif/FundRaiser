@@ -88,6 +88,7 @@
 .request-details-form label {
 	text-transform: uppercase;
 	font-size: 0.8rem;
+	letter-spacing: 0.05rem;
 }
 
 .request-details-form input {
@@ -98,7 +99,7 @@
 	outline: none;
 	background: var(--white-light);
 	border-radius: 0.3rem;
-	border: 1px solid var(--green-main);
+	border: 1px solid var(--circle-color);
 	box-shadow: var(--box-shadow);
 }
 
@@ -119,6 +120,12 @@
 
 .request-details-submit-button:hover {
 	background: var(--green-main);
+}
+
+#request-details-blur.active {
+	filter: blur(0.4rem);
+	pointer-events: none;
+	user-select: none;
 }
 
 #request-left-arrow {
@@ -145,10 +152,4 @@
 	100% {
 		transform: translateX(0%);
 	}
-}
-
-#blur.active {
-	filter: blur(0.5rem);
-	pointer-events: none;
-	user-select: none;
 }

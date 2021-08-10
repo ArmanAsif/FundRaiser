@@ -15,23 +15,29 @@ const imageData = [
 	"/images/docs.png",
 ];
 
+var imageIndex;
+
 const RequestDetailsScreen = () => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		// dispatch(login(email, password));
 	};
 
-	function toggleModal() {
-		var blur = document.getElementById("blur");
+	function toggleModal(e) {
+		var blur = document.getElementById("request-details-blur");
 		blur.classList.toggle("active");
 
-		var popup = document.getElementById("request-details-popup");
+		if (e.target.innerText !== "x") {
+			imageIndex = parseInt(e.target.innerText);
+		}
+
+		var popup = document.getElementById("popup-container");
 		popup.classList.toggle("active");
 	}
 
 	return (
 		<>
-			<div id="blur">
+			<div id="request-details-blur">
 				<Header />
 
 				<div className="request-details-container">
@@ -42,7 +48,7 @@ const RequestDetailsScreen = () => {
 					<div className="request-details-info">
 						<div className="request-details-top">
 							<div className="request-details-circle">
-								<Circle progress={45} />
+								<Circle progress={75} />
 							</div>
 							<div className="request-details-top-text">
 								<p>2500000</p>
@@ -120,7 +126,10 @@ const RequestDetailsScreen = () => {
 				<Footer />
 			</div>
 
-			<Popup toggleModal={toggleModal} />
+			<Popup
+				toggleModal={toggleModal}
+				imageLink={imageData[imageIndex - 1]}
+			/>
 		</>
 	);
 };

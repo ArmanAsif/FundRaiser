@@ -34,7 +34,7 @@ const DonateScreen = () => {
 				></path>
 			</svg>
 
-			<div className="donate-list-container">
+			<div className="donate-donate-list-container">
 				<Card
 					progress={17}
 					problem={"Diabetes"}
