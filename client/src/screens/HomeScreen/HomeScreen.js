@@ -132,6 +132,28 @@ const HomeScreen = () => {
 				<div className="home-guideline-text">
 					<p>Request Guideline</p>
 					<p>
+						Carefully Fill Information Which Is Related To Disease
+						Or Bank Account Address And Others
+					</p>
+					<p>
+						To Recognize You And Verify Your Problem Before
+						Approving Your Fund Request Please Attach These Five
+						Documents Mentioned Below
+					</p>
+					<p>The First One Is Your National ID</p>
+					<p>Then Your Clear Passport Size Photo</p>
+					<p>Third One Is Patient's Prescription</p>
+					<p>Include Incharge Doctor's Contact Details</p>
+					<p>
+						An Application Which Is Signed By Hospital Authority
+						Regarding Patient's Problem.
+					</p>
+					<p>
+						We Will reach Out To Hospital Authority And The Incharge
+						Doctor As Well. If All Goes Right, Your Request Will Be
+						Approved In A Few Days
+					</p>
+					<p>
 						Go To Request Page{" "}
 						<Link
 							to={"/request"}
@@ -139,22 +161,6 @@ const HomeScreen = () => {
 						>
 							Request
 						</Link>
-					</p>
-					<p>Give Your Proper NID Number</p>
-					<p>Fill All Other Information Carefully</p>
-					<p>Enter Exact Bank Account Address</p>
-					<p>
-						You Can Sign An Application From Hospital Authority
-						Regarding Patient's Problem.
-					</p>
-					<p>
-						We Will reach Out To Hospital Authority And The Incharge
-						Doctor As Well Where The Patient Is Admitted. So Include
-						These Information
-					</p>
-					<p>
-						If All Goes Right, Your Request Will Be Approved In A
-						Few Days
 					</p>
 				</div>
 			</div>

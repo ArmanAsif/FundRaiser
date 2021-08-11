@@ -1,14 +1,31 @@
-import React from "react";
 import "./LoginScreen.css";
-import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
 import LoginSvg from "../../components/SVG/LoginSvg";
+import { useDispatch, useSelector } from "react-redux";
+import { userLoginAction } from "../../actions/userActions";
 
-const LoginScreen = () => {
+const LoginScreen = ({ history }) => {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+
+	const dispatch = useDispatch();
+
+	const userLogin = useSelector((state) => state.userLogin);
+	const { userInfo } = userLogin;
+
+	// useEffect(() => {
+	// 	if (userInfo) {
+	// 		history.push("/donate");
+	// 	}
+	// }, [history, userInfo]);
+
 	const submitHandler = (e) => {
 		e.preventDefault();
-		// dispatch(login(email, password));
+		console.log(email, password);
+		dispatch(userLoginAction(email, password));
 	};
 
 	return (
@@ -23,16 +40,16 @@ const LoginScreen = () => {
 						<input
 							type="email"
 							placeholder="Enter Email"
-							// value={email}
-							// onChange={(e) => setEmail(e.target.value)}
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
 						/>
 
 						<label>Enter Password:</label>
 						<input
 							type="password"
 							placeholder="Enter Password"
-							// value={password}
-							// onChange={(e) => setPassword(e.target.value)}
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
 						/>
 
 						<button type="submit" className="login-submit-button">

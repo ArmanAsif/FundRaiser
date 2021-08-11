@@ -96,7 +96,7 @@
 }
 
 .home-guideline-svg {
-	margin-right: 10%;
+	margin: 3rem 10% 0 0;
 }
 
 .home-guideline-text {
@@ -104,7 +104,7 @@
 }
 
 .home-guideline-text p:nth-child(1) {
-	text-align: right;
+	text-align: center;
 	font-size: 1.75rem;
 	margin: 2rem 0 1.5rem;
 }
@@ -116,16 +116,26 @@
 .home-guideline-text p:nth-child(6),
 .home-guideline-text p:nth-child(7),
 .home-guideline-text p:nth-child(8),
-.home-guideline-text p:nth-child(9) {
-	text-align: right;
+.home-guideline-text p:nth-child(9),
+.home-guideline-text p:nth-child(10) {
+	text-align: center;
 	padding: 1rem 0 0.5rem;
-	/* border-bottom: 1px solid var(--circle-color); */
-	font-size: 0.83rem;
+	font-size: 0.8rem;
 	text-transform: uppercase;
 }
 
+.home-guideline-text p:nth-child(2),
+.home-guideline-text p:nth-child(3),
+.home-guideline-text p:nth-child(8),
+.home-guideline-text p:nth-child(9),
+.home-guideline-text p:nth-child(10) {
+	border-bottom: 1px solid var(--circle-color);
+}
+
 .home-guideline-text-link {
+	margin-left: 0.5rem;
 	text-decoration: none;
-	color: var(--circle-color);
+	color: var(--blue-dark);
 	font-style: italic;
+	text-transform: capitalize;
 }
