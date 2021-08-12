@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
 import "./FileUploader.css";
+import React, { useEffect } from "react";
 
 const FileUploader = () => {
 	useEffect(() => {
@@ -45,6 +45,7 @@ const FileUploader = () => {
 				accept=".jpg, .jpeg, .png"
 				multiple
 			/>
+
 			<button className="file-upload-button" type="button">
 				Upload
 			</button>

@@ -1,11 +1,31 @@
 import mongoose from "mongoose";
 
-const requestSchema = mongoose.Schema(
+const userDonatedSchema = mongoose.Schema(
 	{
-		USER: {
+		userName: { type: String, required: true },
+		donatedAmount: { type: Number, required: true },
+		transectionID: { type: String, required: true },
+		user: {
 			type: mongoose.Schema.Types.ObjectId,
 			required: true,
 			ref: "User",
+		},
+	},
+	{
+		timestamps: true,
+	}
+);
+
+const requestSchema = mongoose.Schema(
+	{
+		user: {
+			type: mongoose.Schema.Types.ObjectId,
+			required: true,
+			ref: "User",
+		},
+		phoneNumber: {
+			type: String,
+			required: true,
 		},
 		diseaseName: {
 			type: String,
@@ -14,6 +34,7 @@ const requestSchema = mongoose.Schema(
 		fundAmount: {
 			type: Number,
 			required: true,
+			default: 0,
 		},
 		bankAccount: {
 			type: String,
@@ -23,10 +44,12 @@ const requestSchema = mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		documents: {
-			type: String,
-			required: true,
-		},
+		documents: [
+			{
+				type: String,
+				required: true,
+			},
+		],
 
 		isApproved: {
 			type: Boolean,
@@ -43,27 +66,7 @@ const requestSchema = mongoose.Schema(
 			required: true,
 			default: false,
 		},
-
-		donationList: [
-			{
-				userName: {
-					type: String,
-					required: true,
-				},
-				userEmail: {
-					type: String,
-					required: true,
-				},
-				donationAmount: {
-					type: Number,
-					required: true,
-				},
-				transectionID: {
-					type: String,
-					required: true,
-				},
-			},
-		],
+		userDonatedList: [userDonatedSchema],
 	},
 	{
 		timestamps: true,

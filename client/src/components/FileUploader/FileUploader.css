@@ -1,8 +1,10 @@
-.file-upload {
+.file-upload-container {
 	width: 20rem;
 	display: flex;
 	align-items: center;
 	font-size: 15px;
+	display: flex;
+	justify-content: space-between;
 }
 
 .file-upload-input {
@@ -31,10 +33,20 @@
 }
 
 .file-upload-label {
-	width: 15rem;
-	font-size: 0.9em;
+	width: 13.5rem;
+	font-size: 0.85em;
 	padding: 0.2rem;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
+}
+
+.file-upload-submit-button {
+	width: 1.5rem;
+	border: none;
+	cursor: pointer;
+	background: var(--green-light);
+	color: var(--green-main);
+	font-size: 2rem;
+	font-weight: 700;
 }

@@ -1,4 +1,4 @@
-.date-picker {
+.date-picker-container {
 	position: relative;
 	width: 100%;
 	width: 20rem;
@@ -13,7 +13,7 @@
 	box-shadow: var(--box-shadow);
 }
 
-.date-picker .selected-date {
+.current-date {
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -23,7 +23,7 @@
 	font-size: 0.9rem;
 }
 
-.date-picker .dates {
+.choose-date-layout {
 	display: none;
 	position: absolute;
 	width: 20.25rem;
@@ -35,11 +35,11 @@
 	border: 0.5px solid var(--green-main);
 }
 
-.date-picker .dates.active {
+.choose-date-layout.active {
 	display: inline-block;
 }
 
-.date-picker .dates .month {
+.month {
 	padding: 0 0.7rem;
 	height: 3rem;
 	display: flex;
@@ -50,7 +50,7 @@
 	font-weight: 500;
 }
 
-.date-picker .dates .month .arrows {
+.arrows {
 	width: 2rem;
 	height: 2rem;
 	display: flex;
@@ -60,25 +60,25 @@
 	font-weight: 500;
 }
 
-.date-picker .dates .month .arrows:active {
+.arrows:active {
 	color: var(--white-main);
 	background-color: var(--green-main);
 }
 
-.date-picker .dates .days {
+.days {
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
 	height: 12.5rem;
 }
 
-.date-picker .dates .days .day {
+.day {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-size: 1.04rem;
 }
 
-.date-picker .dates .days .day.selected {
+.day.selected {
 	font-size: 1.3rem;
 	font-weight: 500;
 }

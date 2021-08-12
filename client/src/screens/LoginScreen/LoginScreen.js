@@ -24,8 +24,11 @@ const LoginScreen = ({ history }) => {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		console.log(email, password);
-		dispatch(userLoginAction(email, password));
+
+		if (email && password) {
+			dispatch(userLoginAction(email, password));
+			history.push("/donate");
+		}
 	};
 
 	return (
