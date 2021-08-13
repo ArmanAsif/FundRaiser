@@ -7,6 +7,7 @@ import Header from "../../components/Header/Header";
 import { useDispatch, useSelector } from "react-redux";
 import "../../components/FileUploader/FileUploader.css";
 import RequestSvg from "../../components/SVG/RequestSvg";
+import { userRequestCreateAction } from "../../actions/requestActions";
 
 const diseaseOption = [
 	"Blood Cancer",
@@ -19,22 +20,86 @@ const diseaseOption = [
 	"Diabetes",
 ];
 
+var loading;
 var lastDate;
+var fundAmount;
+var bankAccount;
+var phoneNumber;
 var documents = [];
 var uploadImages = [];
+var diseaseName = "Blood Cancer";
+
 function setLastDate(val) {
 	lastDate = val;
 }
 
-const RequestScreen = () => {
-	const [phoneNumber, setPhoneNumber] = useState("");
-	const [diseaseName, setDiseaseName] = useState("");
-	const [fundAmount, setFundAmount] = useState(0);
-	const [bankAccount, setBankAccount] = useState("");
+const RequestScreen = ({ history }) => {
+	// const [phoneNumber, setPhoneNumber] = useState("");
+	// const [diseaseName, setDiseaseName] = useState("Blood Cancer");
+	// const [fundAmount, setFundAmount] = useState("");
+	// const [bankAccount, setBankAccount] = useState("");
 	// const [documents, setDocuments] = useState([]);
+	// const [loading, setLoading] = useState(true);
+
+	const dispatch = useDispatch();
+
+	const userLogin = useSelector((state) => state.userLogin);
+	const { userInfo } = userLogin;
+
+	useEffect(() => {
+		if (!userInfo) {
+			history.push("/login");
+		}
+	}, [userInfo, history]);
+
+	const submitHandler = (e) => {
+		e.preventDefault();
+
+		if (userInfo && !loading) {
+			dispatch(
+				userRequestCreateAction(
+					phoneNumber,
+					diseaseName,
+					lastDate,
+					fundAmount,
+					bankAccount,
+					documents
+				)
+			);
+
+			document.getElementById("inputPhoneNumber").value = "";
+			document.getElementById("inputFundAmount").value = "Enter Amount";
+			document.getElementById("inputBankAccount").value = "";
+		}
+	};
+
+	const setPhoneNumber = () => {
+		phoneNumber = document.getElementById("inputPhoneNumber").value;
+	};
+
+	const selectChangeHandler = () => {
+		let select = document.getElementById("selectDiseaseName");
+		diseaseName = select.options[select.selectedIndex].value;
+	};
+
+	const setFundAmount = () => {
+		fundAmount = document.getElementById("inputFundAmount").value;
+	};
+
+	const setBankAccount = () => {
+		bankAccount = document.getElementById("inputBankAccount").value;
+	};
 
 	const uploadFileHandler = async (images) => {
-		images.map((image) => {
+		loading = true;
+		documents = [];
+		const label = document.querySelector(".file-upload-label");
+
+		if (loading) {
+			label.textContent = "Uploading Images...";
+		}
+
+		const uploaders = images.map((image) => {
 			const formData = new FormData();
 			formData.append("file", image);
 			formData.append("tags", `dectw0gjt, medium, gist`);
@@ -50,15 +115,17 @@ const RequestScreen = () => {
 				.then((response) => {
 					const data = response.data;
 					const secureUrl = data.secure_url;
-					console.log(secureUrl);
 					documents.push(secureUrl);
 				});
 		});
-	};
 
-	const submitHandler = (e) => {
-		e.preventDefault();
-		console.log(documents);
+		axios.all(uploaders).then(() => {
+			loading = false;
+
+			if (!loading) {
+				label.textContent = "Uploading Complete";
+			}
+		});
 	};
 
 	useEffect(() => {
@@ -258,13 +325,20 @@ const RequestScreen = () => {
 						<input
 							type="text"
 							placeholder="Enter Phone Number"
-							value={phoneNumber}
-							onChange={(e) => setPhoneNumber(e.target.value)}
+							// value={phoneNumber}
+							// onChange={(e) => setPhoneNumber(e.target.value)}
+							id="inputPhoneNumber"
+							onChange={setPhoneNumber}
 						/>
 
 						<label>Choose Your Problem:</label>
 						<div className="request-form-select">
-							<select>
+							<select
+								// value={diseaseName}
+								options={diseaseOption}
+								id="selectDiseaseName"
+								onChange={selectChangeHandler}
+							>
 								{diseaseOption.map((data, index) => {
 									return (
 										<option
@@ -297,16 +371,20 @@ const RequestScreen = () => {
 						<input
 							type="number"
 							placeholder="Enter Amount"
-							value={fundAmount}
-							onChange={(e) => setFundAmount(e.target.value)}
+							// value={fundAmount}
+							// onChange={(e) => setFundAmount(e.target.value)}
+							id="inputFundAmount"
+							onChange={setFundAmount}
 						/>
 
 						<label>Bank Account:</label>
 						<input
 							type="text"
 							placeholder="Bank Account"
-							value={bankAccount}
-							onChange={(e) => setBankAccount(e.target.value)}
+							// value={bankAccount}
+							// onChange={(e) => setBankAccount(e.target.value)}
+							id="inputBankAccount"
+							onChange={setBankAccount}
 						/>
 
 						<div className="file-upload-container">

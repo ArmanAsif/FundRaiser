@@ -16,7 +16,7 @@ const addNewRequest = asyncHandler(async (req, res) => {
 	} = req.body;
 
 	const request = new Request({
-		user: req.User._id,
+		user: req.user._id,
 		phoneNumber,
 		diseaseName,
 		lastDate,
