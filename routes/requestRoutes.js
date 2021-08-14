@@ -8,11 +8,13 @@ import {
 	getAllUserRequest,
 	getUserRequestById,
 	approveUserRequest,
+	updateDonatedList,
 } from "../controllers/requestController.js";
 
 router.route("/").get(protect, getAllUserRequest);
 router.route("/create").post(protect, addNewRequest);
 router.route("/:id").get(protect, getUserRequestById);
+router.route("/donatedList/update/:id").put(protect, updateDonatedList);
 router.route("/admin/approve/:id").put(protect, admin, approveUserRequest);
 
 export default router;

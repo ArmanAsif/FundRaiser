@@ -53,6 +53,7 @@ const HomeScreen = () => {
 						return (
 							<Card
 								key={request._id}
+								requestID={request._id}
 								donatedList={request.donatedList}
 								diseaseName={request.diseaseName}
 								lastDate={request.lastDate}

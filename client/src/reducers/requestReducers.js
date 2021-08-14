@@ -1,4 +1,8 @@
 import {
+	UPDATE_DONATED_LIST_FAIL,
+	UPDATE_DONATED_LIST_REQUEST,
+	UPDATE_DONATED_LIST_RESET,
+	UPDATE_DONATED_LIST_SUCCESS,
 	USER_REQUEST_APPROVE_FAIL,
 	USER_REQUEST_APPROVE_REQUEST,
 	USER_REQUEST_APPROVE_RESET,
@@ -43,7 +47,10 @@ export const userRequestListReducer = (state = { requests: [] }, action) => {
 	}
 };
 
-export const userRequestDetailsReducer = (state = { request: {} }, action) => {
+export const userRequestDetailsReducer = (
+	state = { request: { donatedList: [] } },
+	action
+) => {
 	switch (action.type) {
 		case USER_REQUEST_DETAILS_REQUEST:
 			return { ...state, loading: true };
@@ -65,6 +72,21 @@ export const userRequestApproveReducer = (state = {}, action) => {
 		case USER_REQUEST_APPROVE_FAIL:
 			return { loading: false, error: action.payload };
 		case USER_REQUEST_APPROVE_RESET:
+			return {};
+		default:
+			return state;
+	}
+};
+
+export const donatedListUpdateReducer = (state = {}, action) => {
+	switch (action.type) {
+		case UPDATE_DONATED_LIST_REQUEST:
+			return { loading: true };
+		case UPDATE_DONATED_LIST_SUCCESS:
+			return { loading: false, success: true };
+		case UPDATE_DONATED_LIST_FAIL:
+			return { loading: false, error: action.payload };
+		case UPDATE_DONATED_LIST_RESET:
 			return {};
 		default:
 			return state;

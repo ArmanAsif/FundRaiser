@@ -43,13 +43,14 @@ const AdminApproveScreen = ({ history, match }) => {
 		donatedList,
 	} = request;
 
-	let donatedAmount =
+	let totalDonated =
 		donatedList &&
 		donatedList.reduce((acc, curr) => {
 			return acc + curr.donatedAmount;
 		}, 0);
 
-	let dueAmount = fundAmount ? fundAmount - donatedAmount : 0;
+	let dueAmount = fundAmount ? fundAmount - totalDonated : 0;
+	let progress = (totalDonated * 100) / fundAmount;
 
 	const approveHandler = (e) => {
 		e.preventDefault();
@@ -86,7 +87,7 @@ const AdminApproveScreen = ({ history, match }) => {
 					<div className="admin-approve-info">
 						<div className="admin-approve-top">
 							<div className="admin-approve-circle">
-								<Circle progress={donatedAmount} />
+								<Circle progress={progress} />
 							</div>
 							<div className="admin-approve-top-text">
 								<p>{dueAmount}</p>

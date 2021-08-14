@@ -1,17 +1,23 @@
 import "./RequestDetailsScreen.css";
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Circle from "../../components/Circle/Circle";
 import Modal from "../../components/Modal/Modal";
 import Popup from "../../components/Modal/Popup";
 import Footer from "../../components/Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../components/Header/Header";
-import { userRequestDetailsById } from "../../actions/requestActions";
 import RequestDetailsSvg from "../../components/SVG/RequestDetailsSvg";
+import {
+	userRequestDetailsById,
+	updateDonatedListAction,
+} from "../../actions/requestActions";
 
 let imageIndex;
 
 const RequestDetailsScreen = ({ history, match }) => {
+	const [donatedAmount, setDonatedAmount] = useState(0);
+	const [transectionID, setTransectionID] = useState("");
+
 	const requestID = match.params.id;
 	const dispatch = useDispatch();
 
@@ -39,17 +45,28 @@ const RequestDetailsScreen = ({ history, match }) => {
 		donatedList,
 	} = request;
 
-	let donatedAmount =
+	let totalDonated =
 		donatedList &&
 		donatedList.reduce((acc, curr) => {
 			return acc + curr.donatedAmount;
 		}, 0);
 
-	let dueAmount = fundAmount ? fundAmount - donatedAmount : 0;
+	let dueAmount = fundAmount ? fundAmount - totalDonated : 0;
+	let progress = (totalDonated * 100) / fundAmount;
+
+	const userDonates = donatedList.filter(
+		(data) => data.user === userInfo._id
+	);
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		// dispatch(login(email, password));
+		if (donatedAmount && transectionID) {
+			dispatch(
+				updateDonatedListAction(requestID, donatedAmount, transectionID)
+			);
+			setDonatedAmount(0);
+			setTransectionID("");
+		}
 	};
 
 	function toggleModal(e) {
@@ -72,12 +89,35 @@ const RequestDetailsScreen = ({ history, match }) => {
 				<div className="request-details-container">
 					<div className="request-details-svg">
 						<RequestDetailsSvg />
+
+						{userDonates.map((data, index) => {
+							return (
+								<div
+									key={data._id}
+									className="request-details-donated-list"
+								>
+									<p>{data.donatedAmount} BDT</p>
+									<p>{data.createdAt.substring(0, 10)}</p>
+								</div>
+							);
+						})}
+						{userDonates.map((data, index) => {
+							return (
+								<div
+									key={data._id}
+									className="request-details-donated-list"
+								>
+									<p>{data.donatedAmount} BDT</p>
+									<p>{data.createdAt.substring(0, 10)}</p>
+								</div>
+							);
+						})}
 					</div>
 
 					<div className="request-details-info">
 						<div className="request-details-top">
 							<div className="request-details-circle">
-								<Circle progress={donatedAmount} />
+								<Circle progress={progress} />
 							</div>
 							<div className="request-details-top-text">
 								<p>{dueAmount}</p>
@@ -123,20 +163,24 @@ const RequestDetailsScreen = ({ history, match }) => {
 								className="request-details-form"
 								onSubmit={submitHandler}
 							>
-								<label>Enter Transection:</label>
-								<input
-									type="text"
-									placeholder="Enter Transection"
-									// value={email}
-									// onChange={(e) => setEmail(e.target.value)}
-								/>
-
 								<label>Enter Amount:</label>
 								<input
 									type="number"
 									placeholder="Enter Amount"
-									// value={password}
-									// onChange={(e) => setPassword(e.target.value)}
+									value={donatedAmount}
+									onChange={(e) =>
+										setDonatedAmount(e.target.value)
+									}
+								/>
+
+								<label>Enter Transection:</label>
+								<input
+									type="text"
+									placeholder="Enter Transection"
+									value={transectionID}
+									onChange={(e) =>
+										setTransectionID(e.target.value)
+									}
 								/>
 
 								<button

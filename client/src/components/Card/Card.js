@@ -11,11 +11,12 @@ const Card = ({
 	fundAmount,
 	isAdmin,
 }) => {
-	let donatedAmount = donatedList.reduce((acc, curr) => {
+	let totalDonated = donatedList.reduce((acc, curr) => {
 		return acc + curr.donatedAmount;
 	}, 0);
 
-	let dueMoney = fundAmount - donatedAmount;
+	let dueMoney = fundAmount - totalDonated;
+	let progress = (totalDonated * 100) / fundAmount;
 
 	let link = isAdmin
 		? `/admin/approve/${requestID}`
@@ -27,7 +28,7 @@ const Card = ({
 	return (
 		<div className="card-container">
 			<div className="card-circle">
-				<Circle progress={donatedAmount} />
+				<Circle progress={progress} />
 			</div>
 			<div className="card-text">
 				<p>{diseaseName}</p>

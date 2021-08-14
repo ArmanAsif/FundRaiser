@@ -8,7 +8,7 @@
 }
 
 .request-details-svg {
-	margin: 2.5rem 12% 0 0;
+	margin: 1rem 12% 0 0;
 }
 
 .request-details-info {
@@ -45,7 +45,8 @@
 .request-details-disease,
 .request-details-author,
 .request-details-bank,
-.request-details-date {
+.request-details-date,
+.request-details-donated-list {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -70,6 +71,27 @@
 	width: 75%;
 	text-align: right;
 }
+
+.request-details-donated-list {
+	width: 20rem;
+	margin: 0 auto;
+	font-size: 0.95rem;
+}
+
+.request-details-donated-list p:nth-child(1) {
+	width: 50%;
+	text-align: left;
+}
+
+.request-details-donated-list p:nth-child(2) {
+	width: 50%;
+	text-align: right;
+}
+
+/* .request-details-donated-list p:nth-child(3) {
+	width: 47%;
+	text-align: right;
+} */
 
 .request-details-modal {
 	margin: 0rem 0 1.5rem;

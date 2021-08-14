@@ -11,6 +11,7 @@ import {
 	userRequestListReducer,
 	userRequestDetailsReducer,
 	userRequestApproveReducer,
+	donatedListUpdateReducer,
 } from "./reducers/requestReducers";
 
 const reducers = combineReducers({
@@ -21,6 +22,7 @@ const reducers = combineReducers({
 	userRequestList: userRequestListReducer,
 	userRequestDetails: userRequestDetailsReducer,
 	userRequestApprove: userRequestApproveReducer,
+	donatedListUpdate: donatedListUpdateReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

@@ -1,5 +1,8 @@
 import axios from "axios";
 import {
+	UPDATE_DONATED_LIST_FAIL,
+	UPDATE_DONATED_LIST_REQUEST,
+	UPDATE_DONATED_LIST_SUCCESS,
 	USER_REQUEST_APPROVE_FAIL,
 	USER_REQUEST_APPROVE_REQUEST,
 	USER_REQUEST_APPROVE_SUCCESS,
@@ -146,6 +149,40 @@ export const approveRequestByAdmin =
 		} catch (error) {
 			dispatch({
 				type: USER_REQUEST_APPROVE_FAIL,
+				payload:
+					error.response && error.response.data.message
+						? error.response.data.message
+						: error.message,
+			});
+		}
+	};
+
+export const updateDonatedListAction =
+	(id, donatedAmount, transectionID) => async (dispatch, getState) => {
+		try {
+			dispatch({ type: UPDATE_DONATED_LIST_REQUEST });
+
+			const {
+				userLogin: { userInfo },
+			} = getState();
+
+			const config = {
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${userInfo.token}`,
+				},
+			};
+
+			const { data } = await axios.put(
+				`/api/requests/donatedList/update/${id}`,
+				{ donatedAmount, transectionID },
+				config
+			);
+
+			dispatch({ type: UPDATE_DONATED_LIST_SUCCESS, payload: data });
+		} catch (error) {
+			dispatch({
+				type: UPDATE_DONATED_LIST_FAIL,
 				payload:
 					error.response && error.response.data.message
 						? error.response.data.message

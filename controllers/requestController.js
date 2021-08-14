@@ -83,9 +83,37 @@ const approveUserRequest = asyncHandler(async (req, res) => {
 	}
 });
 
+// @desc    Update request donated list
+// @route   PUT /api/requests/donatedList/update/:id
+// @access  Private
+
+const updateDonatedList = asyncHandler(async (req, res) => {
+	const request = await Request.findById(req.params.id);
+
+	const { donatedAmount, transectionID } = req.body;
+
+	if (request) {
+		const newDonation = {
+			userName: req.user.name,
+			donatedAmount: Number(donatedAmount),
+			transectionID,
+			user: req.user._id,
+		};
+
+		request.donatedList.push(newDonation);
+		await request.save();
+
+		res.status(201).json({ message: "Successfully Added New Donation" });
+	} else {
+		res.status(404);
+		throw new Error("Request Not Found");
+	}
+});
+
 export {
 	addNewRequest,
 	getAllUserRequest,
 	getUserRequestById,
 	approveUserRequest,
+	updateDonatedList,
 };
