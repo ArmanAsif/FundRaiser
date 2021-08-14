@@ -2,9 +2,9 @@ import "./SignupScreen.css";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
+import { useDispatch, useSelector } from "react-redux";
 import Header from "../../components/Header/Header";
 import SignupSvg from "../../components/SVG/SignupSvg";
-import { useDispatch, useSelector } from "react-redux";
 import { userSignupAction } from "../../actions/userActions";
 
 const SignupScreen = () => {

@@ -2,9 +2,9 @@ import "./LoginScreen.css";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
+import { useDispatch, useSelector } from "react-redux";
 import Header from "../../components/Header/Header";
 import LoginSvg from "../../components/SVG/LoginSvg";
-import { useDispatch, useSelector } from "react-redux";
 import { userLoginAction } from "../../actions/userActions";
 
 const LoginScreen = ({ history }) => {

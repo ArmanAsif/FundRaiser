@@ -1,12 +1,47 @@
-import React from "react";
 import "./DonateScreen.css";
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import DonateSvg from "../../components/SVG/DonateSvg";
 import Card from "../../components/Card/Card";
+import Footer from "../../components/Footer/Footer";
+import { useSelector, useDispatch } from "react-redux";
+import Header from "../../components/Header/Header";
+import DonateSvg from "../../components/SVG/DonateSvg";
+import { getUserRequestList } from "../../actions/requestActions";
 
-const DonateScreen = () => {
+const DonateScreen = ({ history }) => {
+	const dispatch = useDispatch();
+
+	const userLogin = useSelector((state) => state.userLogin);
+	const { userInfo } = userLogin;
+
+	const userRequestList = useSelector((state) => state.userRequestList);
+	const { requests } = userRequestList;
+
+	useEffect(() => {
+		if (!userInfo) {
+			history.push("./login");
+		} else {
+			dispatch(getUserRequestList());
+		}
+	}, [userInfo, history, dispatch]);
+
+	let Requests;
+	let isAdmin = userInfo && userInfo.isAdmin ? true : false;
+
+	if (userInfo && userInfo.isAdmin) {
+		Requests =
+			requests &&
+			requests.filter(
+				(request) => !request.isApproved && !request.isDiscarded
+			);
+	} else {
+		Requests =
+			requests &&
+			requests.filter(
+				(request) => request.isApproved && !request.isDiscarded
+			);
+	}
+
 	return (
 		<>
 			<Header />
@@ -35,90 +70,19 @@ const DonateScreen = () => {
 			</svg>
 
 			<div className="donate-donate-list-container">
-				<Card
-					progress={17}
-					problem={"Diabetes"}
-					duration={16}
-					dueMoney={250000}
-				/>
-				<Card
-					progress={8}
-					problem={"Blood Cancer"}
-					duration={16}
-					dueMoney={250000}
-				/>
-				<Card
-					progress={34}
-					problem={"Brain Tumor"}
-					duration={16}
-					dueMoney={250000}
-				/>
-				<Card
-					progress={47}
-					problem={"Accidental Injury"}
-					duration={16}
-					dueMoney={250000}
-				/>
-				<Card
-					progress={27}
-					problem={"Pulmonary Disease"}
-					duration={16}
-					dueMoney={250000}
-				/>
-				<Card
-					progress={74}
-					problem={"Blood Cancer"}
-					duration={16}
-					dueMoney={250000}
-				/>
-				<Card
-					progress={66}
-					problem={"Accidental Injury"}
-					duration={16}
-					dueMoney={250000}
-				/>
-				<Card
-					progress={85}
-					problem={"Accidental Injury"}
-					duration={16}
-					dueMoney={250000}
-				/>
-				<Card
-					progress={17}
-					problem={"Kidney Damaged"}
-					duration={16}
-					dueMoney={250000}
-				/>
-				<Card
-					progress={34}
-					problem={"Brain Tumor"}
-					duration={16}
-					dueMoney={250000}
-				/>
-				<Card
-					progress={17}
-					problem={"Pulmonary Disease"}
-					duration={16}
-					dueMoney={250000}
-				/>
-				<Card
-					progress={34}
-					problem={"Diabetes"}
-					duration={16}
-					dueMoney={250000}
-				/>
-				<Card
-					progress={17}
-					problem={"Kidney Damaged"}
-					duration={16}
-					dueMoney={250000}
-				/>
-				<Card
-					progress={34}
-					problem={"Brain Tumor"}
-					duration={16}
-					dueMoney={250000}
-				/>
+				{Requests.map((request) => {
+					return (
+						<Card
+							key={request._id}
+							requestID={request._id}
+							donatedList={request.donatedList}
+							diseaseName={request.diseaseName}
+							lastDate={request.lastDate}
+							fundAmount={request.fundAmount}
+							isAdmin={isAdmin}
+						/>
+					);
+				})}
 			</div>
 
 			<Footer />

@@ -1,10 +1,10 @@
 import axios from "axios";
 import "./RequestScreen.css";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "../../components/DatePicker/DatePicker.css";
 import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
 import { useDispatch, useSelector } from "react-redux";
+import Header from "../../components/Header/Header";
 import "../../components/FileUploader/FileUploader.css";
 import RequestSvg from "../../components/SVG/RequestSvg";
 import { userRequestCreateAction } from "../../actions/requestActions";
@@ -34,13 +34,6 @@ function setLastDate(val) {
 }
 
 const RequestScreen = ({ history }) => {
-	// const [phoneNumber, setPhoneNumber] = useState("");
-	// const [diseaseName, setDiseaseName] = useState("Blood Cancer");
-	// const [fundAmount, setFundAmount] = useState("");
-	// const [bankAccount, setBankAccount] = useState("");
-	// const [documents, setDocuments] = useState([]);
-	// const [loading, setLoading] = useState(true);
-
 	const dispatch = useDispatch();
 
 	const userLogin = useSelector((state) => state.userLogin);
@@ -67,9 +60,14 @@ const RequestScreen = ({ history }) => {
 				)
 			);
 
-			document.getElementById("inputPhoneNumber").value = "";
-			document.getElementById("inputFundAmount").value = "Enter Amount";
 			document.getElementById("inputBankAccount").value = "";
+			document.getElementById("inputPhoneNumber").value = "";
+			document.querySelector(".current-date").textContent =
+				"Submission Date";
+			document.querySelector(".file-upload-label").textContent =
+				"No Files Chosen";
+			document.getElementById("inputFundAmount").value = "Enter Amount";
+			document.getElementById("selectDiseaseName").value = "Blood Cancer";
 		}
 	};
 
@@ -325,8 +323,6 @@ const RequestScreen = ({ history }) => {
 						<input
 							type="text"
 							placeholder="Enter Phone Number"
-							// value={phoneNumber}
-							// onChange={(e) => setPhoneNumber(e.target.value)}
 							id="inputPhoneNumber"
 							onChange={setPhoneNumber}
 						/>
@@ -334,7 +330,6 @@ const RequestScreen = ({ history }) => {
 						<label>Choose Your Problem:</label>
 						<div className="request-form-select">
 							<select
-								// value={diseaseName}
 								options={diseaseOption}
 								id="selectDiseaseName"
 								onChange={selectChangeHandler}
@@ -371,8 +366,6 @@ const RequestScreen = ({ history }) => {
 						<input
 							type="number"
 							placeholder="Enter Amount"
-							// value={fundAmount}
-							// onChange={(e) => setFundAmount(e.target.value)}
 							id="inputFundAmount"
 							onChange={setFundAmount}
 						/>
@@ -381,8 +374,6 @@ const RequestScreen = ({ history }) => {
 						<input
 							type="text"
 							placeholder="Bank Account"
-							// value={bankAccount}
-							// onChange={(e) => setBankAccount(e.target.value)}
 							id="inputBankAccount"
 							onChange={setBankAccount}
 						/>

@@ -1,5 +1,6 @@
 import Request from "../models/RequestModel.js";
 import asyncHandler from "express-async-handler";
+import { request } from "express";
 
 // @desc    Create new product
 // @route   POST /api/products
@@ -29,4 +30,62 @@ const addNewRequest = asyncHandler(async (req, res) => {
 	res.status(201).json(createdRequest);
 });
 
-export { addNewRequest };
+// @desc    Get all products
+// @route   GET /api/products
+// @access  Public
+
+const getAllUserRequest = asyncHandler(async (req, res) => {
+	const requests = await Request.find({}).populate(
+		"user",
+		"id name email nid"
+	);
+
+	res.json(requests);
+});
+
+// @desc    Fetch single request
+// @route   GET /api/requests/:id
+// @access  Private
+
+const getUserRequestById = asyncHandler(async (req, res) => {
+	const request = await Request.findById(req.params.id).populate(
+		"user",
+		"id name email nid"
+	);
+
+	if (request) {
+		res.json(request);
+	} else {
+		res.status(404);
+		throw new Error("Request Not Found");
+	}
+});
+
+// @desc    Approve Request by Admin
+// @route   PUT /api/requests/admin/approve/:id
+// @access  Private/Admin
+
+const approveUserRequest = asyncHandler(async (req, res) => {
+	const request = await Request.findById(req.params.id);
+
+	if (request) {
+		if (req.body.approve) {
+			request.isApproved = true;
+		} else {
+			request.isDiscarded = true;
+		}
+
+		const updatedRequest = await request.save();
+		res.json(updatedRequest);
+	} else {
+		res.status(404);
+		throw new Error("Request Not Found");
+	}
+});
+
+export {
+	addNewRequest,
+	getAllUserRequest,
+	getUserRequestById,
+	approveUserRequest,
+};

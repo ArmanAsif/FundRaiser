@@ -44,6 +44,7 @@
 
 .admin-approve-disease,
 .admin-approve-author,
+.admin-approve-phone,
 .admin-approve-nid,
 .admin-approve-bank,
 .admin-approve-date {
@@ -58,6 +59,7 @@
 
 .admin-approve-disease p:nth-child(1),
 .admin-approve-author p:nth-child(1),
+.admin-approve-phone p:nth-child(1),
 .admin-approve-nid p:nth-child(1),
 .admin-approve-bank p:nth-child(1),
 .admin-approve-date p:nth-child(1) {
@@ -67,6 +69,7 @@
 
 .admin-approve-disease p:nth-child(2),
 .admin-approve-author p:nth-child(2),
+.admin-approve-phone p:nth-child(2),
 .admin-approve-nid p:nth-child(2),
 .admin-approve-bank p:nth-child(2),
 .admin-approve-date p:nth-child(2) {

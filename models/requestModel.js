@@ -66,7 +66,7 @@ const requestSchema = mongoose.Schema(
 			required: true,
 			default: false,
 		},
-		userDonatedList: [userDonatedSchema],
+		donatedList: [userDonatedSchema],
 	},
 	{
 		timestamps: true,

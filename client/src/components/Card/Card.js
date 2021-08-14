@@ -1,23 +1,40 @@
-import React from "react";
 import "./Card.css";
+import React from "react";
 import Circle from "../Circle/Circle";
 import { Link } from "react-router-dom";
 
-const Card = ({ progress, problem, duration, dueMoney }) => {
+const Card = ({
+	requestID,
+	donatedList,
+	diseaseName,
+	lastDate,
+	fundAmount,
+	isAdmin,
+}) => {
+	let donatedAmount = donatedList.reduce((acc, curr) => {
+		return acc + curr.donatedAmount;
+	}, 0);
+
+	let dueMoney = fundAmount - donatedAmount;
+
+	let link = isAdmin
+		? `/admin/approve/${requestID}`
+		: `/request/${requestID}`;
+
+	let monthDiff = new Date(lastDate).getTime() - new Date().getTime();
+	let duration = Math.abs(Math.floor(monthDiff / (1000 * 60 * 60 * 24)));
+
 	return (
 		<div className="card-container">
 			<div className="card-circle">
-				<Circle progress={progress} />
+				<Circle progress={donatedAmount} />
 			</div>
 			<div className="card-text">
-				<p>{problem}</p>
+				<p>{diseaseName}</p>
 				<p>Due {dueMoney} BDT</p>
 				<p>{duration} Days</p>
 
-				<Link
-					to={"/admin/approve/12345"}
-					className="card-details-button"
-				>
+				<Link to={link} className="card-details-button">
 					check
 				</Link>
 			</div>

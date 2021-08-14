@@ -1,23 +1,52 @@
-import React from "react";
 import "./RequestDetailsScreen.css";
+import React, { useEffect } from "react";
 import Circle from "../../components/Circle/Circle";
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
-import RequestDetailsSvg from "../../components/SVG/RequestDetailsSvg";
 import Modal from "../../components/Modal/Modal";
 import Popup from "../../components/Modal/Popup";
+import Footer from "../../components/Footer/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import Header from "../../components/Header/Header";
+import { userRequestDetailsById } from "../../actions/requestActions";
+import RequestDetailsSvg from "../../components/SVG/RequestDetailsSvg";
 
-const imageData = [
-	"/images/docs.png",
-	"/images/docs.png",
-	"/images/docs.png",
-	"/images/docs.png",
-	"/images/docs.png",
-];
+let imageIndex;
 
-var imageIndex;
+const RequestDetailsScreen = ({ history, match }) => {
+	const requestID = match.params.id;
+	const dispatch = useDispatch();
 
-const RequestDetailsScreen = () => {
+	const userLogin = useSelector((state) => state.userLogin);
+	const { userInfo } = userLogin;
+
+	useEffect(() => {
+		if (!userInfo) {
+			history.push("/login");
+		} else {
+			dispatch(userRequestDetailsById(requestID));
+		}
+	}, [requestID, userInfo, history, dispatch]);
+
+	const userRequestDetails = useSelector((state) => state.userRequestDetails);
+	const { request } = userRequestDetails;
+
+	const {
+		diseaseName,
+		lastDate,
+		fundAmount,
+		bankAccount,
+		documents,
+		user,
+		donatedList,
+	} = request;
+
+	let donatedAmount =
+		donatedList &&
+		donatedList.reduce((acc, curr) => {
+			return acc + curr.donatedAmount;
+		}, 0);
+
+	let dueAmount = fundAmount ? fundAmount - donatedAmount : 0;
+
 	const submitHandler = (e) => {
 		e.preventDefault();
 		// dispatch(login(email, password));
@@ -48,10 +77,10 @@ const RequestDetailsScreen = () => {
 					<div className="request-details-info">
 						<div className="request-details-top">
 							<div className="request-details-circle">
-								<Circle progress={75} />
+								<Circle progress={donatedAmount} />
 							</div>
 							<div className="request-details-top-text">
-								<p>2500000</p>
+								<p>{dueAmount}</p>
 								<p>BDT STILL DUE</p>
 							</div>
 						</div>
@@ -59,37 +88,35 @@ const RequestDetailsScreen = () => {
 						<div className="request-details-bottom">
 							<div className="request-details-disease">
 								<p>Disease</p>
-								<p>Brain Tumor</p>
+								<p>{diseaseName}</p>
 							</div>
 							<div className="request-details-author">
 								<p>Author</p>
-								<p>Nayeem Islam</p>
+								<p>{user && user.name}</p>
 							</div>
 							<div className="request-details-bank">
 								<p>Bank A/C</p>
-								<p>
-									Md Sirajul Islam, Sonali Bank, Gobindagonj,
-									Gaibandha
-								</p>
+								<p>{bankAccount}</p>
 							</div>
 							<div className="request-details-date">
 								<p>Last Date</p>
-								<p>August 15, 2021</p>
+								<p>{lastDate}</p>
 							</div>
 
 							<div className="request-details-modal">
 								<span>DOCS</span>
 
-								{imageData.map((image, index) => {
-									return (
-										<Modal
-											key={index}
-											image={image}
-											index={index + 1}
-											toggleModal={toggleModal}
-										/>
-									);
-								})}
+								{documents &&
+									documents.map((image, index) => {
+										return (
+											<Modal
+												key={index}
+												image={image}
+												index={index + 1}
+												toggleModal={toggleModal}
+											/>
+										);
+									})}
 							</div>
 
 							<form
@@ -128,7 +155,7 @@ const RequestDetailsScreen = () => {
 
 			<Popup
 				toggleModal={toggleModal}
-				imageLink={imageData[imageIndex - 1]}
+				imageLink={documents && documents[imageIndex - 1]}
 			/>
 		</>
 	);
