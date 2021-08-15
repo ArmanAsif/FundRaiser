@@ -8,7 +8,30 @@
 }
 
 .request-details-svg {
-	margin: 1rem 12% 0 0;
+	margin: 0 12% 0 0;
+}
+
+.request-details-user-donated {
+	width: 15rem;
+	height: 5rem;
+	padding: 0.45rem;
+	margin: 0 auto;
+	box-shadow: var(--box-shadow);
+	border-radius: 0.1rem;
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.request-details-user-donated p:nth-child(1) {
+	font-size: 2rem;
+	font-weight: 500;
+	color: var(--green-main);
+}
+
+.request-details-user-donated p:nth-child(2) {
+	font-size: 0.675rem;
+	letter-spacing: 0.1rem;
+	text-transform: uppercase;
 }
 
 .request-details-info {
@@ -45,8 +68,7 @@
 .request-details-disease,
 .request-details-author,
 .request-details-bank,
-.request-details-date,
-.request-details-donated-list {
+.request-details-date {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -72,30 +94,8 @@
 	text-align: right;
 }
 
-.request-details-donated-list {
-	width: 20rem;
-	margin: 0 auto;
-	font-size: 0.95rem;
-}
-
-.request-details-donated-list p:nth-child(1) {
-	width: 50%;
-	text-align: left;
-}
-
-.request-details-donated-list p:nth-child(2) {
-	width: 50%;
-	text-align: right;
-}
-
-/* .request-details-donated-list p:nth-child(3) {
-	width: 47%;
-	text-align: right;
-} */
-
 .request-details-modal {
-	margin: 0rem 0 1.5rem;
-	padding: 1rem 0 0.5rem;
+	padding: 1rem 0;
 }
 
 .request-details-modal span {

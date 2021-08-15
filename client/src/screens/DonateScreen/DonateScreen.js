@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Header from "../../components/Header/Header";
 import DonateSvg from "../../components/SVG/DonateSvg";
 import { getUserRequestList } from "../../actions/requestActions";
+import Loader from "../../components/Loader/Loader";
 
 const DonateScreen = ({ history }) => {
 	const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const DonateScreen = ({ history }) => {
 	const { userInfo } = userLogin;
 
 	const userRequestList = useSelector((state) => state.userRequestList);
-	const { requests } = userRequestList;
+	const { loading, requests } = userRequestList;
 
 	useEffect(() => {
 		if (!userInfo) {
@@ -69,21 +70,25 @@ const DonateScreen = ({ history }) => {
 				></path>
 			</svg>
 
-			<div className="donate-donate-list-container">
-				{Requests.map((request) => {
-					return (
-						<Card
-							key={request._id}
-							requestID={request._id}
-							donatedList={request.donatedList}
-							diseaseName={request.diseaseName}
-							lastDate={request.lastDate}
-							fundAmount={request.fundAmount}
-							isAdmin={isAdmin}
-						/>
-					);
-				})}
-			</div>
+			{loading ? (
+				<Loader height={30} />
+			) : (
+				<div className="donate-donate-list-container">
+					{Requests.map((request) => {
+						return (
+							<Card
+								key={request._id}
+								requestID={request._id}
+								donatedList={request.donatedList}
+								diseaseName={request.diseaseName}
+								lastDate={request.lastDate}
+								fundAmount={request.fundAmount}
+								isAdmin={isAdmin}
+							/>
+						);
+					})}
+				</div>
+			)}
 
 			<Footer />
 		</>
