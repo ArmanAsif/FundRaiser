@@ -67,14 +67,18 @@ const RequestDetailsScreen = ({ history, match }) => {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		if (donatedAmount && transectionID) {
-			dispatch(
-				updateDonatedListAction(requestID, donatedAmount, transectionID)
-			);
-			setDonatedAmount(0);
-			setTransectionID("");
-		}
-		// setMessage((message) => !message);
+		// if (donatedAmount && transectionID) {
+		// 	dispatch(
+		// 		updateDonatedListAction(requestID, donatedAmount, transectionID)
+		// 	);
+		// 	setDonatedAmount(0);
+		// 	setTransectionID("");
+		// }
+
+		setMessage(true);
+		setTimeout(() => {
+			setMessage(false);
+		}, 6000);
 	};
 
 	function toggleModal(e) {
@@ -92,6 +96,13 @@ const RequestDetailsScreen = ({ history, match }) => {
 	return (
 		<>
 			<div id="request-details-blur">
+				{message && (
+					<Message
+						color={"var(--blue-main)"}
+						message={"Successfully Submitted"}
+					/>
+				)}
+
 				<Header />
 
 				<div className="request-details-container">
@@ -99,7 +110,6 @@ const RequestDetailsScreen = ({ history, match }) => {
 						<Loader height={75} />
 					) : (
 						<>
-							{message && <Message />}
 							<div className="request-details-svg">
 								<div className="request-details-user-donated">
 									<p>{userDonatedAmount}</p>
