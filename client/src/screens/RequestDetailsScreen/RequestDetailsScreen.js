@@ -98,7 +98,7 @@ const RequestDetailsScreen = ({ history, match }) => {
 			<div id="request-details-blur">
 				{message && (
 					<Message
-						color={"var(--blue-main)"}
+						color={"var(--purple-main)"}
 						message={"Successfully Submitted"}
 					/>
 				)}

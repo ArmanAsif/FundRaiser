@@ -353,9 +353,13 @@ const RequestScreen = ({ history }) => {
 
 							<div className="choose-date-layout">
 								<div className="month">
-									<div className="arrows prev-mth">&lt;</div>
+									<div className="arrows prev-mth">
+										&#9665;
+									</div>
 									<div className="mth"></div>
-									<div className="arrows next-mth">&gt;</div>
+									<div className="arrows next-mth">
+										&#9655;
+									</div>
 								</div>
 
 								<div className="days"></div>

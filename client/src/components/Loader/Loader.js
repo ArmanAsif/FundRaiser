@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 
 const LoaderContainer = styled.div`
-	width: 90vw;
+	width: 100vw;
 	height: ${(props) => props.height}vh;
 	display: flex;
 	justify-content: center;

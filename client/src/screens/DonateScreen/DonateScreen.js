@@ -1,15 +1,23 @@
 import "./DonateScreen.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "../../components/Card/Card";
+import "../../components/Paginate/Paginate.css";
 import Footer from "../../components/Footer/Footer";
+import Loader from "../../components/Loader/Loader";
 import { useSelector, useDispatch } from "react-redux";
 import Header from "../../components/Header/Header";
 import DonateSvg from "../../components/SVG/DonateSvg";
 import { getUserRequestList } from "../../actions/requestActions";
-import Loader from "../../components/Loader/Loader";
+
+let data;
+let end = 0;
+let start = 0;
 
 const DonateScreen = ({ history }) => {
+	// const [end, setEnd] = useState(0);
+	// const [start, setStart] = useState(0);
+	const [currentItems, setCurrentItems] = useState([]);
 	const dispatch = useDispatch();
 
 	const userLogin = useSelector((state) => state.userLogin);
@@ -29,19 +37,140 @@ const DonateScreen = ({ history }) => {
 	let Requests;
 	let isAdmin = userInfo && userInfo.isAdmin ? true : false;
 
-	if (userInfo && userInfo.isAdmin) {
-		Requests =
-			requests &&
-			requests.filter(
-				(request) => !request.isApproved && !request.isDiscarded
-			);
-	} else {
-		Requests =
-			requests &&
-			requests.filter(
-				(request) => request.isApproved && !request.isDiscarded
-			);
-	}
+	Requests = requests && requests.filter((request) => !request.isDiscarded);
+
+	// if (userInfo && userInfo.isAdmin) {
+	// 	Requests =
+	// 		requests &&
+	// 		requests.filter(
+	// 			(request) => !request.isApproved && !request.isDiscarded
+	// 		);
+	// } else {
+	// 	Requests =
+	// 		requests &&
+	// 		requests.filter(
+	// 			(request) => request.isApproved && !request.isDiscarded
+	// 		);
+	// }
+
+	useEffect(() => {
+		let pageBtn;
+		let rows = 1;
+		let currentPage = 1;
+		let pageCount = Requests && Math.ceil(Requests.length / rows);
+
+		const pagination_element = document.getElementById("pagination");
+		const left_arrow = document.querySelector(".left-arrow");
+		const right_arrow = document.querySelector(".right-arrow");
+
+		function prevButton() {
+			left_arrow.addEventListener("click", function () {
+				if (currentPage > 1) {
+					currentPage--;
+					displayList();
+					setupPagination();
+				}
+			});
+		}
+
+		function nextButton() {
+			right_arrow.addEventListener("click", function () {
+				if (currentPage < pageCount) {
+					currentPage++;
+					displayList();
+					setupPagination();
+				}
+			});
+		}
+
+		function displayList() {
+			start = (currentPage - 1) * rows;
+			end = start + rows;
+			setCurrentItems([]);
+			setCurrentItems(Requests && Requests.slice(start, end));
+
+			console.log(start, end);
+			console.log(currentItems);
+		}
+
+		function setupPagination() {
+			pagination_element.innerHTML = "";
+
+			if (pageCount <= 6) {
+				for (let i = 1; i < pageCount + 1; i++) {
+					pageBtn = PaginationButton(i);
+					pagination_element.appendChild(pageBtn);
+				}
+			} else {
+				pageBtn = PaginationButton(1);
+				pagination_element.appendChild(pageBtn);
+
+				if (currentPage > 3) {
+					let spread = document.createElement("div");
+					spread.innerText = ".";
+					spread.style = "font-size: 1.7rem";
+					pagination_element.appendChild(spread);
+				}
+
+				if (currentPage === pageCount) {
+					pageBtn = PaginationButton(currentPage - 2);
+					pagination_element.appendChild(pageBtn);
+				}
+
+				if (currentPage > 2) {
+					pageBtn = PaginationButton(currentPage - 1);
+					pagination_element.appendChild(pageBtn);
+				}
+
+				if (currentPage !== 1 && currentPage !== pageCount) {
+					pageBtn = PaginationButton(currentPage);
+					pagination_element.appendChild(pageBtn);
+				}
+
+				if (currentPage < pageCount - 1) {
+					pageBtn = PaginationButton(currentPage + 1);
+					pagination_element.appendChild(pageBtn);
+				}
+
+				if (currentPage === 1) {
+					pageBtn = PaginationButton(currentPage + 2);
+					pagination_element.appendChild(pageBtn);
+				}
+
+				if (currentPage < pageCount - 2) {
+					let spread = document.createElement("div");
+					spread.innerText = ".";
+					spread.style = "font-size: 1.7rem";
+					pagination_element.appendChild(spread);
+				}
+
+				pageBtn = PaginationButton(pageCount);
+				pagination_element.appendChild(pageBtn);
+			}
+		}
+
+		function PaginationButton(page) {
+			let button = document.createElement("button");
+			let buttonText = page < 10 ? "0" + page : page;
+			button.innerText = buttonText;
+
+			if (page === currentPage) {
+				button.style.color = "#007a29";
+			}
+
+			button.addEventListener("click", function () {
+				currentPage = page;
+				displayList();
+				setupPagination();
+			});
+			return button;
+		}
+
+		displayList();
+		prevButton();
+		setupPagination();
+		nextButton();
+	}, [start, end, loading, data]);
 
 	return (
 		<>
@@ -70,11 +199,11 @@ const DonateScreen = ({ history }) => {
 				></path>
 			</svg>
 
-			{loading ? (
-				<Loader height={30} />
-			) : (
-				<div className="donate-donate-list-container">
-					{Requests.map((request) => {
+			{loading && <Loader height={30} />}
+
+			<div className="donate-donate-list-container">
+				{currentItems &&
+					currentItems.map((request) => {
 						return (
 							<Card
 								key={request._id}
@@ -87,8 +216,13 @@ const DonateScreen = ({ history }) => {
 							/>
 						);
 					})}
-				</div>
-			)}
+			</div>
+
+			<div className="pagination-container">
+				<div className="left-arrow">&#9665;</div>
+				<div className="pagination" id="pagination"></div>
+				<div className="right-arrow">&#9655;</div>
+			</div>
 
 			<Footer />
 		</>

@@ -9,8 +9,8 @@ const SlideDown = () => keyframes`
 	100% {
 		transform: translateY(-110%);
 	}
-	10%,
-	90% {
+	12.5%,
+	87.5% {
 		transform: translateY(1rem);
 	}
 `;
@@ -40,7 +40,6 @@ const NotificationMain = styled.div`
 	left: 50%;
 	position: absolute;
 	transform: translate(-50%, 0%);
-	// background: var(--green-main);
 `;
 
 const Message = ({ color, message }) => {
@@ -50,7 +49,7 @@ const Message = ({ color, message }) => {
 		currSvg = <OkSvg />;
 	} else if (color === "var(--red-main)") {
 		currSvg = <ErrorSvg />;
-	} else if (color === "var(--blue-main)") {
+	} else if (color === "var(--purple-main)") {
 		currSvg = <InfoSvg />;
 	}
 
