@@ -53,5 +53,5 @@
 
 .login:hover {
 	color: var(--green-main);
-	background: var(--white-main);
+	background: var(--white-light);
 }

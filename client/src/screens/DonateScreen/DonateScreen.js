@@ -14,7 +14,6 @@ let data;
 let pageBtn;
 let end = 0;
 let start = 0;
-let prevPage = 0;
 let totalCard = 1;
 let currentPage = 1;
 
@@ -60,27 +59,21 @@ const DonateScreen = ({ history }) => {
 		const left_arrow = document.querySelector(".left-arrow");
 		const right_arrow = document.querySelector(".right-arrow");
 
-		function prevButton() {
-			left_arrow.addEventListener("click", function () {
-				prevPage++;
+		left_arrow.onclick = function () {
+			if (currentPage > 1) {
+				currentPage--;
+				displayList();
+				setupPagination();
+			}
+		};
 
-				if (currentPage > 1 && prevPage % 3 === 0) {
-					currentPage--;
-					displayList();
-					setupPagination();
-				}
-			});
-		}
-
-		function nextButton() {
-			right_arrow.addEventListener("click", function () {
-				if (currentPage < pageCount) {
-					currentPage++;
-					displayList();
-					setupPagination();
-				}
-			});
-		}
+		right_arrow.onclick = function () {
+			if (currentPage < pageCount) {
+				currentPage++;
+				displayList();
+				setupPagination();
+			}
+		};
 
 		function displayList() {
 			start = (currentPage - 1) * totalCard;
@@ -164,8 +157,7 @@ const DonateScreen = ({ history }) => {
 
 		displayList();
 		setupPagination();
-		prevButton();
-		nextButton();
+		// eslint-disable-next-line
 	}, [loading]);
 
 	return (

@@ -1,11 +1,11 @@
 import React from "react";
 import "./Modal.css";
 
-const Popup = ({ imageLink, toggleModal }) => {
+const Popup = ({ imageLink, toggleModal, index }) => {
 	return (
 		<div id="popup-container">
 			<img src={imageLink} alt="" />
-			<a href="#" onClick={toggleModal}>
+			<a href={`#${index}`} onClick={toggleModal}>
 				x
 			</a>
 		</div>

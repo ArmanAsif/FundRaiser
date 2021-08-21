@@ -4,7 +4,7 @@ import "./Modal.css";
 const Modal = ({ index, image, toggleModal }) => {
 	return (
 		<>
-			<a href="#" onClick={toggleModal} className="modal-tag">
+			<a href={`#${index}`} onClick={toggleModal} className="modal-tag">
 				{index}
 			</a>
 		</>

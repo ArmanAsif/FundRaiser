@@ -167,6 +167,7 @@ const AdminApproveScreen = ({ history, match }) => {
 			<Popup
 				toggleModal={toggleModal}
 				imageLink={documents && documents[imageIndex - 1]}
+				index={imageIndex}
 			/>
 		</>
 	);
