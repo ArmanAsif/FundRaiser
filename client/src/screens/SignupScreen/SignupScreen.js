@@ -1,11 +1,12 @@
 import "./SignupScreen.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
-import { useDispatch, useSelector } from "react-redux";
 import Header from "../../components/Header/Header";
 import SignupSvg from "../../components/SVG/SignupSvg";
 import { userSignupAction } from "../../actions/userActions";
+import Message from "../../components/Message/Message";
 
 const SignupScreen = () => {
 	const [name, setName] = useState("");
@@ -13,8 +14,14 @@ const SignupScreen = () => {
 	const [nid, setNid] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
+	const [message, setMessage] = useState(false);
 
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}, []);
 
 	const submitHandler = (e) => {
 		e.preventDefault();
@@ -28,11 +35,23 @@ const SignupScreen = () => {
 			setNid("");
 			setPassword("");
 			setConfirmPassword("");
+
+			setMessage(true);
+			setTimeout(() => {
+				setMessage(false);
+			}, 6000);
 		}
 	};
 
 	return (
 		<>
+			{message && (
+				<Message
+					color={"var(--green-main)"}
+					message={"Successfully Submitted"}
+				/>
+			)}
+
 			<Header />
 
 			<div className="signup-container">

@@ -28,6 +28,11 @@ const DonateScreen = ({ history }) => {
 	const { loading, requests } = userRequestList;
 
 	useEffect(() => {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}, []);
+
+	useEffect(() => {
 		if (!userInfo) {
 			history.push("./login");
 		} else {

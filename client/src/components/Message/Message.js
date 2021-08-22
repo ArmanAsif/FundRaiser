@@ -1,8 +1,8 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
-import ErrorSvg from "../SVG/ErrorSvg";
-import InfoSvg from "../SVG/InfoSvg";
 import OkSvg from "../SVG/OkSvg";
+import InfoSvg from "../SVG/InfoSvg";
+import ErrorSvg from "../SVG/ErrorSvg";
+import styled, { keyframes } from "styled-components";
 
 const SlideDown = () => keyframes`
 	0%,

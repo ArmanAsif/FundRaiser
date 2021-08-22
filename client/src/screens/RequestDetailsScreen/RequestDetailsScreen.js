@@ -28,6 +28,11 @@ const RequestDetailsScreen = ({ history, match }) => {
 	const { userInfo } = userLogin;
 
 	useEffect(() => {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}, []);
+
+	useEffect(() => {
 		if (!userInfo) {
 			history.push("/login");
 		} else {
@@ -63,22 +68,24 @@ const RequestDetailsScreen = ({ history, match }) => {
 			if (curr.user === userInfo._id) {
 				return acc + curr.donatedAmount;
 			}
+			return 0;
 		}, 0);
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		// if (donatedAmount && transectionID) {
-		// 	dispatch(
-		// 		updateDonatedListAction(requestID, donatedAmount, transectionID)
-		// 	);
-		// 	setDonatedAmount(0);
-		// 	setTransectionID("");
-		// }
 
-		setMessage(true);
-		setTimeout(() => {
-			setMessage(false);
-		}, 6000);
+		if (donatedAmount && transectionID) {
+			dispatch(
+				updateDonatedListAction(requestID, donatedAmount, transectionID)
+			);
+			setDonatedAmount(0);
+			setTransectionID("");
+
+			setMessage(true);
+			setTimeout(() => {
+				setMessage(false);
+			}, 6000);
+		}
 	};
 
 	function toggleModal(e) {
@@ -98,7 +105,7 @@ const RequestDetailsScreen = ({ history, match }) => {
 			<div id="request-details-blur">
 				{message && (
 					<Message
-						color={"var(--purple-main)"}
+						color={"var(--green-main)"}
 						message={"Successfully Submitted"}
 					/>
 				)}

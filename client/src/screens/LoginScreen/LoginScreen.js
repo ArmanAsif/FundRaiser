@@ -1,8 +1,8 @@
 import "./LoginScreen.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
-import { useDispatch, useSelector } from "react-redux";
 import Header from "../../components/Header/Header";
 import LoginSvg from "../../components/SVG/LoginSvg";
 import { userLoginAction } from "../../actions/userActions";
@@ -13,14 +13,10 @@ const LoginScreen = ({ history }) => {
 
 	const dispatch = useDispatch();
 
-	const userLogin = useSelector((state) => state.userLogin);
-	const { userInfo } = userLogin;
-
-	// useEffect(() => {
-	// 	if (userInfo) {
-	// 		history.push("/donate");
-	// 	}
-	// }, [history, userInfo]);
+	useEffect(() => {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}, []);
 
 	const submitHandler = (e) => {
 		e.preventDefault();

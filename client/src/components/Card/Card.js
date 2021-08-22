@@ -11,16 +11,16 @@ const Card = ({
 	fundAmount,
 	isAdmin,
 }) => {
+	let link = isAdmin
+		? `/admin/approve/${requestID}`
+		: `/request/${requestID}`;
+
 	let totalDonated = donatedList.reduce((acc, curr) => {
 		return acc + curr.donatedAmount;
 	}, 0);
 
 	let dueMoney = fundAmount - totalDonated;
 	let progress = (totalDonated * 100) / fundAmount;
-
-	let link = isAdmin
-		? `/admin/approve/${requestID}`
-		: `/request/${requestID}`;
 
 	let monthDiff = new Date(lastDate).getTime() - new Date().getTime();
 	let duration = Math.abs(Math.floor(monthDiff / (1000 * 60 * 60 * 24)));

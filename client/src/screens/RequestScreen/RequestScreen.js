@@ -40,6 +40,11 @@ const RequestScreen = ({ history }) => {
 	const { userInfo } = userLogin;
 
 	useEffect(() => {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}, []);
+
+	useEffect(() => {
 		if (!userInfo) {
 			history.push("/login");
 		}
@@ -62,8 +67,7 @@ const RequestScreen = ({ history }) => {
 
 			document.getElementById("inputBankAccount").value = "";
 			document.getElementById("inputPhoneNumber").value = "";
-			document.querySelector(".current-date").textContent =
-				"Submission Date";
+			document.querySelector(".current-date").textContent = "Choose Date";
 			document.querySelector(".file-upload-label").textContent =
 				"No Files Chosen";
 			document.getElementById("inputFundAmount").value = "Enter Amount";

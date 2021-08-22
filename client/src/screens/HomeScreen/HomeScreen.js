@@ -11,7 +11,14 @@ const HomeScreen = () => {
 	let initialHeight = window.innerHeight / 2.25;
 
 	useEffect(() => {
-		window.onscroll = () => {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}, []);
+
+	useEffect(() => {
+		window.addEventListener("scroll", counterScroll);
+
+		function counterScroll() {
 			setOffset(window.pageYOffset);
 			const counters = document.querySelectorAll(".counter");
 			const speed = 200;
@@ -38,8 +45,10 @@ const HomeScreen = () => {
 					counter.innerText = 0;
 				});
 			}
-		};
-	}, [offset]);
+		}
+
+		return () => window.removeEventListener("scroll", counterScroll);
+	}, [offset, initialHeight]);
 
 	return (
 		<>

@@ -1,6 +1,3 @@
-import thunk from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { createStore, combineReducers, applyMiddleware } from "redux";
 import {
 	userSignupReducer,
 	userLoginReducer,
@@ -13,6 +10,10 @@ import {
 	userRequestApproveReducer,
 	donatedListUpdateReducer,
 } from "./reducers/requestReducers";
+
+import thunk from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
+import { createStore, combineReducers, applyMiddleware } from "redux";
 
 const reducers = combineReducers({
 	userSignup: userSignupReducer,

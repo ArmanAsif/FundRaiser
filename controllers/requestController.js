@@ -1,6 +1,5 @@
 import Request from "../models/RequestModel.js";
 import asyncHandler from "express-async-handler";
-import { request } from "express";
 
 // @desc    Create new product
 // @route   POST /api/products

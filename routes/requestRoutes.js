@@ -1,8 +1,6 @@
 import express from "express";
 const router = express.Router();
 
-import { protect, admin } from "../middleware/authMiddleware.js";
-
 import {
 	addNewRequest,
 	getAllUserRequest,
@@ -10,6 +8,8 @@ import {
 	approveUserRequest,
 	updateDonatedList,
 } from "../controllers/requestController.js";
+
+import { protect, admin } from "../middleware/authMiddleware.js";
 
 router.route("/").get(protect, getAllUserRequest);
 router.route("/create").post(protect, addNewRequest);

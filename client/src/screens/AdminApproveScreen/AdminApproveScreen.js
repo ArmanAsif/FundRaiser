@@ -1,3 +1,7 @@
+import {
+	userRequestDetailsById,
+	approveRequestByAdmin,
+} from "../../actions/requestActions";
 import "./AdminApproveScreen.css";
 import React, { useEffect } from "react";
 import Circle from "../../components/Circle/Circle";
@@ -7,10 +11,6 @@ import Footer from "../../components/Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../components/Header/Header";
 import ApproveSvg from "../../components/SVG/ApproveSvg";
-import {
-	userRequestDetailsById,
-	approveRequestByAdmin,
-} from "../../actions/requestActions";
 
 let imageIndex;
 
@@ -20,6 +20,11 @@ const AdminApproveScreen = ({ history, match }) => {
 
 	const userLogin = useSelector((state) => state.userLogin);
 	const { userInfo } = userLogin;
+
+	useEffect(() => {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}, []);
 
 	useEffect(() => {
 		if (!userInfo) {
