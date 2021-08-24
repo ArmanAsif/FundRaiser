@@ -4,7 +4,8 @@ import React, { useEffect, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import HeroSvg from "../../components/SVG/HeroSvg";
 import Header from "../../components/Header/Header";
-import GuidelineSvg from "../../components/SVG/GuidelineSvg";
+import Carousel from "../../components/Carousel/Carousel";
+import RequestGuideline from "../../components/RequestGuideline/RequestGuideline";
 
 const HomeScreen = () => {
 	const [offset, setOffset] = useState(0);
@@ -97,14 +98,18 @@ const HomeScreen = () => {
 				</div>
 			</div>
 
+			<RequestGuideline />
+
+			{/* <Carousel /> */}
+
 			<div className="home-guideline">
 				<div className="home-guideline-text">
-					<p>Request Guideline</p>
+					{/* <p>Request Guideline</p> */}
 					{/* <p>
 						Carefully Fill Information Which Is Related To Disease
 						Or Bank Account Address And Others
 					</p> */}
-					<p>
+					{/* <p>
 						To Recognize You And Verify Your Problem Before
 						Approving Your Fund Request Please Attach These Five
 						Documents Mentioned Below
@@ -115,7 +120,7 @@ const HomeScreen = () => {
 						Prescription, Incharge Doctor's Contact Details, An
 						Application Which Is Signed By Hospital Authority
 						Regarding Patient's Problem
-					</p>
+					</p> */}
 					{/* <p>
 						<span className="guideline-right-arrow">&#9655;</span>{" "}
 						The First One Is Your National ID
@@ -137,11 +142,11 @@ const HomeScreen = () => {
 						An Application Which Is Signed By Hospital Authority
 						Regarding Patient's Problem
 					</p> */}
-					<p>
+					{/* <p>
 						We Will reach Out To Hospital Authority And The Incharge
 						Doctor As Well. If All Goes Right, Your Request Will Be
 						Approved In A Few Days
-					</p>
+					</p> */}
 					{/* <p>
 						Go To Request Page{" "}
 						<Link
@@ -153,9 +158,9 @@ const HomeScreen = () => {
 					</p> */}
 				</div>
 
-				<div className="home-guideline-svg">
+				{/* <div className="home-guideline-svg">
 					<GuidelineSvg />
-				</div>
+				</div> */}
 			</div>
 
 			<Footer />

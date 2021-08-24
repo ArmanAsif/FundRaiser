@@ -1,0 +1,153 @@
+.process-wrapper {
+	margin: 10rem auto;
+	width: 80%;
+}
+
+.process-wrapper span {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	font-size: 1.25rem;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+#progress-bar-container {
+	position: relative;
+	width: 60%;
+	margin: 1rem auto 2rem;
+	height: 100px;
+}
+
+#progress-bar-container ul {
+	padding: 0;
+	margin: 0;
+	padding-top: 15px;
+	z-index: 9999;
+	position: absolute;
+	width: 100%;
+	margin-top: -25px;
+}
+
+#progress-bar-container li {
+	list-style: none;
+	float: left;
+	width: 20%;
+	text-align: center;
+	padding: 0.5rem 0;
+	cursor: pointer;
+	font-size: 1.25rem;
+	font-weight: 500;
+	transition: all ease 0.2s;
+	vertical-align: bottom;
+	height: 60px;
+	position: relative;
+}
+
+#progress-bar-container li .step-inner {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+}
+
+#progress-bar-container li.active {
+	color: var(--black-main);
+}
+
+#progress-bar-container li:after {
+	content: " ";
+	display: block;
+	width: 8px;
+	height: 8px;
+	background: var(--white-main);
+	margin: auto;
+	border: solid 7px var(--circle-color);
+	border-radius: 50%;
+	margin-top: 57px;
+	box-shadow: var(--box-shadow);
+	transition: all ease 0.2s;
+}
+
+#progress-bar-container li.active:after {
+	background: var(--green-dark);
+}
+
+#progress-bar-container #line {
+	width: 80%;
+	margin: auto;
+	background: var(--white-main);
+	height: 3.5px;
+	position: absolute;
+	left: 10%;
+	top: 65px;
+	z-index: 1;
+	border-radius: 50px;
+	transition: all ease 0.9s;
+}
+
+#progress-bar-container #line-progress {
+	content: " ";
+	width: 0%;
+	height: 100%;
+	background: #207893;
+	background: linear-gradient(
+		to right,
+		var(--circle-color) 0%,
+		var(--circle-color) 100%
+	);
+	position: absolute;
+	z-index: 2;
+	border-radius: 50px;
+	transition: all ease 0.9s;
+}
+
+#progress-content-section {
+	width: 60%;
+	margin: 0 auto;
+	border-radius: 2px;
+	background: var(--white-light);
+	box-shadow: var(--box-shadow);
+}
+
+#progress-content-section .section-content {
+	padding: 2rem 2.5rem;
+	text-align: justify;
+}
+
+#progress-content-section .section-content h2 {
+	text-align: center;
+	font-size: 1.25rem;
+	font-weight: 500;
+	text-transform: uppercase;
+	margin-bottom: 1.25rem;
+	color: var(--green-main);
+}
+
+#progress-content-section .section-content p {
+	font-size: 0.95rem;
+	line-height: 1.375rem;
+}
+
+#progress-content-section .section-content {
+	display: none;
+	animation: FadeInUp 700ms ease 1;
+	animation-fill-mode: forwards;
+	transform: translateY(15px);
+	opacity: 0;
+}
+
+#progress-content-section .section-content.active {
+	display: block;
+}
+
+@keyframes FadeInUp {
+	0% {
+		transform: translateY(15px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
