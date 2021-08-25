@@ -100,68 +100,7 @@ const HomeScreen = () => {
 
 			<RequestGuideline />
 
-			{/* <Carousel /> */}
-
-			<div className="home-guideline">
-				<div className="home-guideline-text">
-					{/* <p>Request Guideline</p> */}
-					{/* <p>
-						Carefully Fill Information Which Is Related To Disease
-						Or Bank Account Address And Others
-					</p> */}
-					{/* <p>
-						To Recognize You And Verify Your Problem Before
-						Approving Your Fund Request Please Attach These Five
-						Documents Mentioned Below
-					</p>
-					<p>
-						<span className="guideline-right-arrow">&#9655;</span>{" "}
-						Your National ID, Passport Size Photo, Patient's
-						Prescription, Incharge Doctor's Contact Details, An
-						Application Which Is Signed By Hospital Authority
-						Regarding Patient's Problem
-					</p> */}
-					{/* <p>
-						<span className="guideline-right-arrow">&#9655;</span>{" "}
-						The First One Is Your National ID
-					</p>
-					<p>
-						<span className="guideline-right-arrow">&#9655;</span>{" "}
-						Then Your Clear Passport Size Photo
-					</p>
-					<p>
-						<span className="guideline-right-arrow">&#9655;</span>{" "}
-						Third One Is Patient's Prescription
-					</p>
-					<p>
-						<span className="guideline-right-arrow">&#9655;</span>{" "}
-						Include Incharge Doctor's Contact Details
-					</p>
-					<p>
-						<span className="guideline-right-arrow">&#9655;</span>{" "}
-						An Application Which Is Signed By Hospital Authority
-						Regarding Patient's Problem
-					</p> */}
-					{/* <p>
-						We Will reach Out To Hospital Authority And The Incharge
-						Doctor As Well. If All Goes Right, Your Request Will Be
-						Approved In A Few Days
-					</p> */}
-					{/* <p>
-						Go To Request Page{" "}
-						<Link
-							to={"/request"}
-							className="home-guideline-text-link"
-						>
-							request
-						</Link>
-					</p> */}
-				</div>
-
-				{/* <div className="home-guideline-svg">
-					<GuidelineSvg />
-				</div> */}
-			</div>
+			<Carousel />
 
 			<Footer />
 		</>

@@ -1,5 +1,10 @@
 import "./RequestGuideline.css";
 import React, { useEffect } from "react";
+import StepOneSvg from "../SVG/StepOneSvg";
+import StepTwoSvg from "../SVG/StepTwoSvg";
+import StepThreeSvg from "../SVG/StepThreeSvg";
+import StepFourSvg from "../SVG/StepFourSvg";
+import StepFiveSvg from "../SVG/StepFiveSvg";
 
 const RequestGuideline = () => {
 	useEffect(() => {
@@ -76,19 +81,19 @@ const RequestGuideline = () => {
 				<div id="progress-bar-container">
 					<ul>
 						<li className="step step01 active">
-							<div className="step-inner">1</div>
+							<div className="step-inner">01</div>
 						</li>
 						<li className="step step02">
-							<div className="step-inner">2</div>
+							<div className="step-inner">02</div>
 						</li>
 						<li className="step step03">
-							<div className="step-inner">3</div>
+							<div className="step-inner">03</div>
 						</li>
 						<li className="step step04">
-							<div className="step-inner">4</div>
+							<div className="step-inner">04</div>
 						</li>
 						<li className="step step05">
-							<div className="step-inner">5</div>
+							<div className="step-inner">05</div>
 						</li>
 					</ul>
 
@@ -99,76 +104,47 @@ const RequestGuideline = () => {
 
 				<div id="progress-content-section">
 					<div className="section-content discovery active">
-						<h2>Register Yourself</h2>
 						<p>
-							No User Can Apply For Fund Without Signup Process.
-							So Signup Yourself With Proper Information And Log
-							With Your Account.
+							Register Yourself With Proper Information And Logged
+							Into Your Account For Applying Fund Request
 						</p>
+						<StepOneSvg />
 					</div>
 
 					<div className="section-content strategy">
-						<h2>Give Information</h2>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit. Donec neque justo, consequat non fermentum ac,
-							tempor eu turpis. Proin nulla eros, placerat non
-							ipsum ut, dapibus ullamcorper ex. Nulla in dapibus
-							lorem. Suspendisse vitae velit ac ante consequat
-							placerat ut sed eros. Nullam porttitor mattis mi, id
-							fringilla ex consequat eu. Praesent pulvinar
-							tincidunt leo et condimentum. Maecenas volutpat
-							turpis at felis egestas malesuada. Phasellus sem
-							odio, venenatis at ex a, lacinia suscipit orci.
+							Give Authentic Information About Patient's Disease
+							Name, Bank Account Id, Approximate Last Date And
+							Others
 						</p>
+						<StepTwoSvg />
 					</div>
 
 					<div className="section-content creative">
-						<h2>Upload Documents</h2>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit. Donec neque justo, consequat non fermentum ac,
-							tempor eu turpis. Proin nulla eros, placerat non
-							ipsum ut, dapibus ullamcorper ex. Nulla in dapibus
-							lorem. Suspendisse vitae velit ac ante consequat
-							placerat ut sed eros. Nullam porttitor mattis mi, id
-							fringilla ex consequat eu. Praesent pulvinar
-							tincidunt leo et condimentum. Maecenas volutpat
-							turpis at felis egestas malesuada. Phasellus sem
-							odio, venenatis at ex a, lacinia suscipit orci.
+							Upload NID, Passport Photo, Prescription, Incharge
+							Doctor Contact Details And An Application Signed By
+							Hospital Authority
 						</p>
+						<StepThreeSvg />
 					</div>
 
 					<div className="section-content production">
-						<h2>Verification Process</h2>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit. Donec neque justo, consequat non fermentum ac,
-							tempor eu turpis. Proin nulla eros, placerat non
-							ipsum ut, dapibus ullamcorper ex. Nulla in dapibus
-							lorem. Suspendisse vitae velit ac ante consequat
-							placerat ut sed eros. Nullam porttitor mattis mi, id
-							fringilla ex consequat eu. Praesent pulvinar
-							tincidunt leo et condimentum. Maecenas volutpat
-							turpis at felis egestas malesuada. Phasellus sem
-							odio, venenatis at ex a, lacinia suscipit orci.
+							Based On Your Uploaded Five Document, We Will Reach
+							Out To Hospital Authority And Doctor As Well To
+							Verify Your Request
 						</p>
+						<StepFourSvg />
 					</div>
 
 					<div className="section-content analysis">
-						<h2>Your Desire Moment</h2>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit. Donec neque justo, consequat non fermentum ac,
-							tempor eu turpis. Proin nulla eros, placerat non
-							ipsum ut, dapibus ullamcorper ex. Nulla in dapibus
-							lorem. Suspendisse vitae velit ac ante consequat
-							placerat ut sed eros. Nullam porttitor mattis mi, id
-							fringilla ex consequat eu. Praesent pulvinar
-							tincidunt leo et condimentum. Maecenas volutpat
-							turpis at felis egestas malesuada. Phasellus sem
-							odio, venenatis at ex a, lacinia suscipit orci.
+							Some Time Is Required For The Verification Process.
+							Please Keep Patient If All Goes Right Then You Are
+							Good To Go
 						</p>
+						<StepFiveSvg />
 					</div>
 				</div>
 			</div>
