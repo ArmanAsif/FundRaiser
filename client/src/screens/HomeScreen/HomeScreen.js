@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import HeroSvg from "../../components/SVG/HeroSvg";
 import Header from "../../components/Header/Header";
-import Carousel from "../../components/Carousel/Carousel";
-import RequestGuideline from "../../components/RequestGuideline/RequestGuideline";
+import Procedure from "../../components/Procedure/Procedure";
+import Testimonial from "../../components/Testimonial/Testimonial";
 
 const HomeScreen = () => {
 	const [offset, setOffset] = useState(0);
@@ -98,9 +98,9 @@ const HomeScreen = () => {
 				</div>
 			</div>
 
-			<RequestGuideline />
+			<Procedure />
 
-			<Carousel />
+			<Testimonial />
 
 			<Footer />
 		</>

@@ -1,14 +1,13 @@
-import "./RequestGuideline.css";
+import "./Procedure.css";
 import React, { useEffect } from "react";
-import StepOneSvg from "../SVG/StepOneSvg";
-import StepTwoSvg from "../SVG/StepTwoSvg";
-import StepThreeSvg from "../SVG/StepThreeSvg";
-import StepFourSvg from "../SVG/StepFourSvg";
 import StepFiveSvg from "../SVG/StepFiveSvg";
+import StepTwoSvg from "../SVG/StepTwoSvg";
+import StepOneSvg from "../SVG/StepOneSvg";
+import StepFourSvg from "../SVG/StepFourSvg";
+import StepThreeSvg from "../SVG/StepThreeSvg";
 
-const RequestGuideline = () => {
+const Procedure = () => {
 	useEffect(() => {
-		// const eachStep = document.querySelector(".step");
 		const lineProgress = document.getElementById("line-progress");
 		const stepOne = document.querySelector(".step01");
 		const stepTwo = document.querySelector(".step02");
@@ -104,47 +103,47 @@ const RequestGuideline = () => {
 
 				<div id="progress-content-section">
 					<div className="section-content discovery active">
+						<StepOneSvg />
 						<p>
 							Register Yourself With Proper Information And Logged
 							Into Your Account For Applying Fund Request
 						</p>
-						<StepOneSvg />
 					</div>
 
 					<div className="section-content strategy">
+						<StepTwoSvg />
 						<p>
 							Give Authentic Information About Patient's Disease
 							Name, Bank Account Id, Approximate Last Date And
 							Others
 						</p>
-						<StepTwoSvg />
 					</div>
 
 					<div className="section-content creative">
+						<StepThreeSvg />
 						<p>
 							Upload NID, Passport Photo, Prescription, Incharge
 							Doctor Contact Details And An Application Signed By
 							Hospital Authority
 						</p>
-						<StepThreeSvg />
 					</div>
 
 					<div className="section-content production">
+						<StepFourSvg />
 						<p>
 							Based On Your Uploaded Five Document, We Will Reach
 							Out To Hospital Authority And Doctor As Well To
 							Verify Your Request
 						</p>
-						<StepFourSvg />
 					</div>
 
 					<div className="section-content analysis">
+						<StepFiveSvg />
 						<p>
 							Some Time Is Required For The Verification Process.
-							Please Keep Patient If All Goes Right Then You Are
+							Please Be Patient If All Goes Right Then You Are
 							Good To Go
 						</p>
-						<StepFiveSvg />
 					</div>
 				</div>
 			</div>
@@ -152,4 +151,4 @@ const RequestGuideline = () => {
 	);
 };
 
-export default RequestGuideline;
+export default Procedure;
