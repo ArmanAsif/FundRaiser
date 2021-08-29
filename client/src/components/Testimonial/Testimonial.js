@@ -11,12 +11,12 @@ const Testimonial = () => {
 			".testimonial-image-center .circle-image"
 		);
 		const textContent = document.querySelectorAll(".testimonial-text");
-		// const prevArrow = document.querySelector(".testimonial-prev-arrow");
+		const prevArrow = document.querySelector(".testimonial-prev-arrow");
 		const nextArrow = document.querySelector(".testimonial-next-arrow");
 
 		imageCircle.forEach((image) => {
 			image.addEventListener("click", () => {
-				const index = image.getAttribute("data-slide-index");
+				const index = +image.getAttribute("data-slide-index");
 
 				let prevSibling = imageCenter[index].previousElementSibling;
 				let nextSibling = imageCenter[index].nextElementSibling;
@@ -62,9 +62,26 @@ const Testimonial = () => {
 			textContent[(indexCurrent + 1) % 6].classList.add("active");
 		};
 
-		// setInterval(() => {
-		// 	Next();
-		// }, 5000);
+		prevArrow.onclick = function () {
+			for (let i = 0; i < imageCenter.length; i++) {
+				if (imageCenter[i].classList.contains("active")) {
+					indexCurrent = i;
+				}
+			}
+
+			let index = indexCurrent === 0 ? 5 : indexCurrent - 1;
+
+			imageCenter[indexCurrent].classList.remove("active");
+			imageCenter[index].classList.add("active");
+
+			textContent[indexCurrent].classList.remove("active");
+			textContent[index].classList.add("active");
+		};
+
+		let timerDelay = setInterval(() => {
+			nextArrow.onclick();
+		}, 7500);
+		return () => clearInterval(timerDelay);
 	});
 
 	return (

@@ -89,13 +89,6 @@
 	transition: all 0.4s ease;
 }
 
-/* .testimonial-image-container
-	.testimonial-image-circle
-	.circle-image.active
-	img {
-	transform: scale(1.275);
-} */
-
 .testimonial-image-container .testimonial-image-center .circle-image {
 	width: 100px;
 	top: 50%;
@@ -119,7 +112,6 @@
 .testimonial-text-container {
 	width: 50%;
 	padding: 2rem 0;
-	/* border: 1px solid var(--black-main); */
 }
 
 .testimonial-text-container {
